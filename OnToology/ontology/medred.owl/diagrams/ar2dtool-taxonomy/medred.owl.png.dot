@@ -1,0 +1,31 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "medred:Questionnaire" "medred:Question" "medred:ItemGroup" "medred:Item" "medred:Instrument" "medred:CaseReportForm" "p-plan:MultiStep" "p-plan:Activity" "p-plan:Step" "p-plan:Entity" "p-plan:Bundle" "prov:Bundle" "prov:Entity" "p-plan:Plan" "prov:Plan" "prov:Activity" ; /*classes style*/
+	"p-plan:Activity" -> "prov:Activity" [ label = "rdfs:subClassOf" ];
+	"p-plan:Entity" -> "prov:Entity" [ label = "rdfs:subClassOf" ];
+	"dcterms:SizeOrDuration" -> "dcterms:MediaTypeOrExtent" [ label = "rdfs:subClassOf" ];
+	"dcterms:Jurisdiction" -> "dcterms:LocationPeriodOrJurisdiction" [ label = "rdfs:subClassOf" ];
+	"prov:Plan" -> "prov:Entity" [ label = "rdfs:subClassOf" ];
+	"dcterms:PeriodOfTime" -> "dcterms:LocationPeriodOrJurisdiction" [ label = "rdfs:subClassOf" ];
+	"medred:CaseReportForm" -> "medred:Instrument" [ label = "rdfs:subClassOf" ];
+	"dcterms:FileFormat" -> "dcterms:MediaType" [ label = "rdfs:subClassOf" ];
+	"prov:Bundle" -> "prov:Entity" [ label = "rdfs:subClassOf" ];
+	"medred:ItemGroup" -> "medred:Item" [ label = "rdfs:subClassOf" ];
+	"dcterms:MediaType" -> "dcterms:MediaTypeOrExtent" [ label = "rdfs:subClassOf" ];
+	"dcterms:LicenseDocument" -> "dcterms:RightsStatement" [ label = "rdfs:subClassOf" ];
+	"p-plan:Bundle" -> "prov:Bundle" [ label = "rdfs:subClassOf" ];
+	"p-plan:Bundle" -> "p-plan:Entity" [ label = "rdfs:subClassOf" ];
+	"p-plan:Plan" -> "prov:Plan" [ label = "rdfs:subClassOf" ];
+	"p-plan:Plan" -> "p-plan:Entity" [ label = "rdfs:subClassOf" ];
+	"p-plan:MultiStep" -> "p-plan:Step" [ label = "rdfs:subClassOf" ];
+	"p-plan:MultiStep" -> "p-plan:Plan" [ label = "rdfs:subClassOf" ];
+	"dcterms:Location" -> "dcterms:LocationPeriodOrJurisdiction" [ label = "rdfs:subClassOf" ];
+	"dcterms:PhysicalMedium" -> "dcterms:MediaType" [ label = "rdfs:subClassOf" ];
+	"medred:Questionnaire" -> "medred:Instrument" [ label = "rdfs:subClassOf" ];
+	"medred:Item" -> "p-plan:Step" [ label = "rdfs:subClassOf" ];
+	"dcterms:AgentClass" -> "rdfs:Class" [ label = "rdfs:subClassOf" ];
+	"medred:Instrument" -> "prov:Plan" [ label = "rdfs:subClassOf" ];
+	"medred:Question" -> "medred:Item" [ label = "rdfs:subClassOf" ];
+
+}
