@@ -1,0 +1,326 @@
+{
+  "@context" : {
+    "spatial" : {
+      "@id" : "http://purl.org/dc/terms/spatial",
+      "@type" : "@id"
+    },
+    "dateAccepted" : {
+      "@id" : "http://purl.org/dc/terms/dateAccepted",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "abstract" : {
+      "@id" : "http://purl.org/dc/terms/abstract"
+    },
+    "MediaTypeOrExtent" : {
+      "@id" : "http://purl.org/dc/terms/MediaTypeOrExtent"
+    },
+    "coverage" : {
+      "@id" : "http://purl.org/dc/terms/coverage",
+      "@type" : "@id"
+    },
+    "isVersionOf" : {
+      "@id" : "http://purl.org/dc/terms/isVersionOf"
+    },
+    "created" : {
+      "@id" : "http://purl.org/dc/terms/created",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "RightsStatement" : {
+      "@id" : "http://purl.org/dc/terms/RightsStatement"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license",
+      "@type" : "@id"
+    },
+    "ProvenanceStatement" : {
+      "@id" : "http://purl.org/dc/terms/ProvenanceStatement"
+    },
+    "accrualPeriodicity" : {
+      "@id" : "http://purl.org/dc/terms/accrualPeriodicity",
+      "@type" : "@id"
+    },
+    "CaseReportForm" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#CaseReportForm"
+    },
+    "bibliographicCitation" : {
+      "@id" : "http://purl.org/dc/terms/bibliographicCitation",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "MediaType" : {
+      "@id" : "http://purl.org/dc/terms/MediaType"
+    },
+    "issued" : {
+      "@id" : "http://purl.org/dc/terms/issued",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "references" : {
+      "@id" : "http://purl.org/dc/terms/references"
+    },
+    "isReplacedBy" : {
+      "@id" : "http://purl.org/dc/terms/isReplacedBy"
+    },
+    "hasVersion" : {
+      "@id" : "http://purl.org/dc/terms/hasVersion"
+    },
+    "Class" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#Class"
+    },
+    "FileFormat" : {
+      "@id" : "http://purl.org/dc/terms/FileFormat"
+    },
+    "VocabularyEncodingScheme" : {
+      "@id" : "http://purl.org/dc/dcam/VocabularyEncodingScheme"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "isPartOf" : {
+      "@id" : "http://purl.org/dc/terms/isPartOf"
+    },
+    "hasPart" : {
+      "@id" : "http://purl.org/dc/terms/hasPart"
+    },
+    "isFormatOf" : {
+      "@id" : "http://purl.org/dc/terms/isFormatOf"
+    },
+    "Question" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#Question"
+    },
+    "Location" : {
+      "@id" : "http://purl.org/dc/terms/Location"
+    },
+    "LinguisticSystem" : {
+      "@id" : "http://purl.org/dc/terms/LinguisticSystem"
+    },
+    "medium" : {
+      "@id" : "http://purl.org/dc/terms/medium",
+      "@type" : "@id"
+    },
+    "note" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#note"
+    },
+    "rightsHolder" : {
+      "@id" : "http://purl.org/dc/terms/rightsHolder",
+      "@type" : "@id"
+    },
+    "Step" : {
+      "@id" : "http://purl.org/net/p-plan#Step"
+    },
+    "Agent" : {
+      "@id" : "http://purl.org/dc/terms/Agent"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator",
+      "@type" : "@id"
+    },
+    "ItemGroup" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#ItemGroup"
+    },
+    "valid" : {
+      "@id" : "http://purl.org/dc/terms/valid",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "dateCopyrighted" : {
+      "@id" : "http://purl.org/dc/terms/dateCopyrighted",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights",
+      "@type" : "@id"
+    },
+    "studyName" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#studyName"
+    },
+    "MethodOfAccrual" : {
+      "@id" : "http://purl.org/dc/terms/MethodOfAccrual"
+    },
+    "PhysicalResource" : {
+      "@id" : "http://purl.org/dc/terms/PhysicalResource"
+    },
+    "Study" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#Study"
+    },
+    "identifier" : {
+      "@id" : "http://purl.org/dc/terms/identifier",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "PhysicalMedium" : {
+      "@id" : "http://purl.org/dc/terms/PhysicalMedium"
+    },
+    "subject" : {
+      "@id" : "http://purl.org/dc/terms/subject"
+    },
+    "Standard" : {
+      "@id" : "http://purl.org/dc/terms/Standard"
+    },
+    "Plan" : {
+      "@id" : "http://www.w3.org/ns/prov#Plan"
+    },
+    "accrualMethod" : {
+      "@id" : "http://purl.org/dc/terms/accrualMethod",
+      "@type" : "@id"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "Jurisdiction" : {
+      "@id" : "http://purl.org/dc/terms/Jurisdiction"
+    },
+    "tableOfContents" : {
+      "@id" : "http://purl.org/dc/terms/tableOfContents"
+    },
+    "AgentClass" : {
+      "@id" : "http://purl.org/dc/terms/AgentClass"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "dateSubmitted" : {
+      "@id" : "http://purl.org/dc/terms/dateSubmitted",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "isRequiredBy" : {
+      "@id" : "http://purl.org/dc/terms/isRequiredBy"
+    },
+    "source" : {
+      "@id" : "http://purl.org/dc/elements/1.1/source"
+    },
+    "type" : {
+      "@id" : "http://purl.org/dc/terms/type",
+      "@type" : "@id"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/terms/publisher",
+      "@type" : "@id"
+    },
+    "LicenseDocument" : {
+      "@id" : "http://purl.org/dc/terms/LicenseDocument"
+    },
+    "BibliographicResource" : {
+      "@id" : "http://purl.org/dc/terms/BibliographicResource"
+    },
+    "Questionnaire" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#Questionnaire"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "Frequency" : {
+      "@id" : "http://purl.org/dc/terms/Frequency"
+    },
+    "provenance" : {
+      "@id" : "http://purl.org/dc/terms/provenance",
+      "@type" : "@id"
+    },
+    "isReferencedBy" : {
+      "@id" : "http://purl.org/dc/terms/isReferencedBy"
+    },
+    "accessRights" : {
+      "@id" : "http://purl.org/dc/terms/accessRights",
+      "@type" : "@id"
+    },
+    "date" : {
+      "@id" : "http://purl.org/dc/terms/date",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "seeAlso" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+    },
+    "replaces" : {
+      "@id" : "http://purl.org/dc/terms/replaces"
+    },
+    "Policy" : {
+      "@id" : "http://purl.org/dc/terms/Policy"
+    },
+    "audience" : {
+      "@id" : "http://purl.org/dc/terms/audience",
+      "@type" : "@id"
+    },
+    "Instrument" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#Instrument"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "language" : {
+      "@id" : "http://purl.org/dc/terms/language",
+      "@type" : "@id"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/terms/contributor",
+      "@type" : "@id"
+    },
+    "mediator" : {
+      "@id" : "http://purl.org/dc/terms/mediator",
+      "@type" : "@id"
+    },
+    "requires" : {
+      "@id" : "http://purl.org/dc/terms/requires"
+    },
+    "available" : {
+      "@id" : "http://purl.org/dc/terms/available",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "Item" : {
+      "@id" : "http://aislab.hevs.ch/ontology/medred#Item"
+    },
+    "extent" : {
+      "@id" : "http://purl.org/dc/terms/extent",
+      "@type" : "@id"
+    },
+    "conformsTo" : {
+      "@id" : "http://purl.org/dc/terms/conformsTo",
+      "@type" : "@id"
+    },
+    "alternative" : {
+      "@id" : "http://purl.org/dc/terms/alternative",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "hasFormat" : {
+      "@id" : "http://purl.org/dc/terms/hasFormat"
+    },
+    "PeriodOfTime" : {
+      "@id" : "http://purl.org/dc/terms/PeriodOfTime"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "SizeOrDuration" : {
+      "@id" : "http://purl.org/dc/terms/SizeOrDuration"
+    },
+    "format" : {
+      "@id" : "http://purl.org/dc/terms/format",
+      "@type" : "@id"
+    },
+    "MethodOfInstruction" : {
+      "@id" : "http://purl.org/dc/terms/MethodOfInstruction"
+    },
+    "relation" : {
+      "@id" : "http://purl.org/dc/elements/1.1/relation"
+    },
+    "temporal" : {
+      "@id" : "http://purl.org/dc/terms/temporal",
+      "@type" : "@id"
+    },
+    "accrualPolicy" : {
+      "@id" : "http://purl.org/dc/terms/accrualPolicy",
+      "@type" : "@id"
+    },
+    "LocationPeriodOrJurisdiction" : {
+      "@id" : "http://purl.org/dc/terms/LocationPeriodOrJurisdiction"
+    },
+    "Collection" : {
+      "@id" : "http://purl.org/dc/dcmitype/Collection"
+    },
+    "instructionalMethod" : {
+      "@id" : "http://purl.org/dc/terms/instructionalMethod",
+      "@type" : "@id"
+    },
+    "educationLevel" : {
+      "@id" : "http://purl.org/dc/terms/educationLevel",
+      "@type" : "@id"
+    }
+  }
+}
