@@ -1,46 +1,30 @@
 package ch.hevs.medred
 
 import scala.io.Source
-import org.apache.jena.datatypes.xsd.XSDDatatype
 import scala.collection.mutable.ArrayBuffer
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
-import rsp.data.Iri
-import rsp.data.Triple
 
-case class Study(id:String)
+import org.apache.jena.rdf.model.RDFNode
+import org.apache.jena.rdf.model.ResourceFactory
+import org.apache.jena.rdf.model.Literal
+import ch.hevs.medred.vocab.MedRed
+import ch.hevs.rdftools.rdf.vocab.Rdfs
+import ch.hevs.rdftools.rdf.vocab.Rdf
+import ch.hevs.rdftools.rdf.vocab.Dcterms
+import ch.hevs.rdftools.rdf.RdfTerm
+import ch.hevs.rdftools.rdf.Iri
+import org.apache.jena.riot.RDFFormat
+import org.apache.jena.riot.RDFDataMgr
+import org.apache.jena.rdf.model.RDFList
 
-case class Instrument(name:String,items:Seq[Item])
-
-class Item(val name:String,label:String,note:String) {
+  import ch.hevs.rdftools.rdf.api.JenaTools._
+  import ch.hevs.rdftools.rdf.Literal._
+  import org.apache.jena.rdf.model.Container
+  import org.apache.jena.vocabulary.XSD
+  import ch.hevs.medred.vocab.PPlan
   
-}
-
-case class FieldType(id:String)
-object TextType extends FieldType("text")
-object OptionType extends FieldType("option")
-object FileType extends FieldType("file")
-object NoType extends FieldType("none")
-
-object FieldType {
-  def parse(str:String)=str match {
-    case "text"=>TextType
-    case "dropdown"=>OptionType
-    case "file"=>FileType
-  //  case _ =>NoType
-  }
-}
-
-
-case class Section(sectionName:String,label:String,note:String,items:Seq[Item]) extends Item(sectionName,label,note)
-
-case class Field(fieldName:String,label:String,note:String,fieldType:FieldType,variable:Variable) extends Item(fieldName,label,note)
-
-case class Note(noteName:String,label:String) extends Item(noteName,label,"")
-
-case class Variable(varName:String,varType:XSDDatatype)
-
-object Rdfizer {
+class Rdfizer(prefix:Iri) {
   
   //"Variable / Field Name","Form Name","Section Header","Field Type",
   //"Field Label","Choices, Calculations, OR Slider Labels","Field Note",
@@ -48,6 +32,9 @@ object Rdfizer {
   //Identifier?,"Branching Logic (Show field only if...)","Required Field?","Custom Alignment",
   //"Question Number (surveys only)","Matrix Group Name","Matrix Ranking?","Field Annotation"  
  
+  import Rdfizer._
+  import Iri._
+  
   def loadRedCap(file:String)={
     var instrumentName=""
     var section:Option[Section]=None
@@ -63,53 +50,173 @@ object Rdfizer {
       if (nr==1) 
         instrumentName=data(1)
       
-      
-      
-      val fieldLabel=data(4)
-      val fieldNote=data(6)
+      val fieldLabel=stripQuotes(data(4))
+      val fieldNote=stripQuotes(data(6))
 
-      val field=if (data(3)=="descriptive")
+      val field=
+        if (data(3)=="descriptive")
           Note(fieldName,fieldLabel)
         else {
           val fieldType=FieldType.parse(data(3))
-          Field(fieldName,fieldLabel,fieldNote,fieldType,null)  
-        }
-        
+          val computation=
+            if (fieldType!=CalculationType) None
+            else Some(stripQuotes(data(5)))
+          val f=Field(fieldName,fieldType,Variable(fieldName,fieldType.toXsd),computation)
+          val choices:Array[Choice]=
+            if (fieldType!=OptionType && fieldType!=OneOptionType) Array()
+            else stripQuotes(data(5)).split("\\s\\|\\s").map(parseChoice)
+          if (fieldType==CalculationType)
+            Operation(fieldName,fieldLabel,fieldNote,f)
+          else
+            Question(fieldName,fieldLabel,fieldNote,f,choices)
+        }        
 
-      val sectionName=data(2)
+      val matrixName=data(15)
+      val sectionName=stripQuotes(data(2))
       if (!sectionName.isEmpty){
-        secNr+=1
-        section=Some(Section("section"+secNr,sectionName,"",ArrayBuffer(field)))
+        val sectionId= 
+          if (matrixName.isEmpty){
+            secNr+=1
+            "section"+secNr
+          }
+          else matrixName
+        section=Some(Section(sectionId,sectionName,"",ArrayBuffer(field),!matrixName.isEmpty))
         items+=section.get
       }
+      else if (!section.isDefined || (section.get.matrix && matrixName.isEmpty))
+        items+=field
       else
         section.get.items.asInstanceOf[ArrayBuffer[Item]]+=field
-      if (!section.isDefined)
-        items+=field
       nr+=1 
     }
     Instrument(instrumentName,items)    
   }
   
-  def toRdf(instr:Instrument)={
-    import rsp.util.JenaTools._
-    import rsp.data.Literal._
-    val m= ModelFactory.createDefaultModel
-    val pfx="http://example.org/"
-    val t=Triple(Iri(pfx), Iri(""), lit(""))
-    //m.add(toJenaTriple(t))
-    
+
+
+  def +=(s:Iri,p:Iri,o:Iri)(implicit m:Model)={
+    m.add(s,p,o)
+  }
+  def +=(s:Iri,p:Iri,o:String)(implicit m:Model)={
+    m.add(toJenaRes(s),p,o)
+  }
+  def +=(s:Iri,p:Iri,o:Literal)(implicit m:Model)={
+    m.add(s,p,o)
+  }
+  def +=(s:Iri,p:Iri,list:RDFList)(implicit m:Model)={
+    m.add(s,p,list)
+  } 
+  def +=(s:Iri,p:Iri,cont:Container)(implicit m:Model)={
+    m.add(s,p,cont)
+  } 
+  
+  def newIri(str:String)=prefix+str.replaceAll("\\s|/|<|>|\\(|\\)","")
+  
+  def toRdf(item:Item)(implicit m:Model):Unit= item match{
+    case sec:Section=>
+        val secIri=newIri(sec.name)
+        val secItems=m.createSeq
+        +=(secIri,Rdf.a,MedRed.Section)
+        +=(secIri,Dcterms.identifier,sec.name)
+        +=(secIri,Dcterms.title,sec.label)
+        sec.items.foreach {i=>
+          val iti:RDFNode=newIri(i.name)
+          secItems.add(iti)
+          toRdf(i)
+        }
+        +=(secIri,MedRed.items,secItems)
+      case question:Question=>
+        val qIri=createRdfItem(question)
+        +=(qIri,Rdf.a,MedRed.Question)
+        val choices:Array[RDFNode]=
+          question.choices.map { x => toJenaRes(toRdf(x)) }.toArray
+        if (choices.length>0)
+          +=(qIri,MedRed.choices,m.createList(choices))
+        createRdfVar(question.field,qIri)
+      case operation:Operation=>
+        val oIri=createRdfItem(operation)
+        +=(oIri,Rdf.a,MedRed.Operation)
+        +=(oIri,MedRed.calculation,operation.field.computation.get)
+       
+        createRdfVar(operation.field,oIri)
+      case note:Note=>
+        val infoIri=newIri(note.name)
+        +=(infoIri,Rdf.a,MedRed.Information)
+        +=(infoIri,Dcterms.description,note.label)
+   
+  }
+  
+  def createRdfVar(field:Field,itemIri:Iri)(implicit m:Model)={
+    val varIri=itemIri+"_var"
+    +=(itemIri,PPlan.hasOutputVar,varIri)
+    +=(varIri,Rdf.a,MedRed.Variable)
+    +=(varIri,MedRed.varName,field.variable.varName)
+    +=(varIri,MedRed.dataType,Iri(field.fieldType.toXsd.getURI))
+  }
+  
+  def createRdfItem(item:Item)(implicit m:Model):Iri={
+    val itemIri=newIri(item.name)
+    +=(itemIri,Dcterms.identifier,item.name)
+    +=(itemIri,Dcterms.title,item.label)
+    if (!item.note.isEmpty)
+      +=(itemIri,Dcterms.description,item.note)
+    itemIri  
   }
   
   
-  def main (args:Array[String])={
-    val instr=loadRedCap("src/main/resources/instruments/childs_sleep_habits_questionnaire_cshq.csv")
+  def toRdf(choice:Choice)(implicit m:Model)={
+    val choiceIri=newIri(choice.label+choice.value)
+    +=(choiceIri,Rdf.a,MedRed.Choice)
+    +=(choiceIri,Dcterms.title,choice.label)
+    +=(choiceIri,MedRed.hasValue,lit(choice.value))
+     choiceIri
+  }
+  
+  def toRdf(instr:Instrument):Model={
+    implicit val m= ModelFactory.createDefaultModel
+    m.setNsPrefix("ex", this.prefix.value)
+    m.setNsPrefix("rdf", Rdf.iri.value)
+    m.setNsPrefix("medred", MedRed.iri.value)
+    m.setNsPrefix("xsd",XSD.getURI)
+    m.setNsPrefix("dcterms", Dcterms.iri.value)
+    m.setNsPrefix("pplan", PPlan.iri.value)
+    val instIri=newIri(instr.name)
+    +=(instIri, Rdf.a,MedRed.Instrument)
+    +=(instIri,Dcterms.identifier,instr.name)
+    val items=m.createSeq
+    instr.items.foreach{item=>
+      val iri:RDFNode=newIri(item.name)
+      items.add(iri)
+      toRdf(item)
+    }
+    +=(instIri,MedRed.items,items)
+    m
+  }
+  
+}
+
+object Rdfizer{  
+  def stripQuotes(str:String)=str.replaceAll("^\"|\"$", "")
+  def parseChoice(str:String)={
+    val split=str.split(", ")
+    println(str)
+    Choice(split(0),split(1))
+  }
+ 
+  
+  def main (args:Array[String]):Unit={
+    val rdfizer=new Rdfizer(iri("http://example.org/"))
+    //val instr=rdfizer.loadRedCap("src/main/resources/instruments/childs_sleep_habits_questionnaire_cshq.csv")
+    val instr=rdfizer.loadRedCap("src/main/resources/instruments/expanded_prostate_cancer_index_composite_epic.csv")
+    val m=rdfizer.toRdf(instr)
+    RDFDataMgr.write(System.out,m,RDFFormat.TURTLE)
+    /*
     instr.items.foreach {d=>
       d match {
         case s:Section=>println(s.sectionName)
           println(s.items.map { i => i.name }.mkString(","))
         
       }
-    }
+    }*/
   }
 }
