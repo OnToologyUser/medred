@@ -9,8 +9,7 @@
 @base <http://aislab.hevs.ch/ontology/medred#> .
 
 <http://aislab.hevs.ch/ontology/medred#> rdf:type owl:Ontology ;
-                                          owl:imports <http://purl.org/dc/terms/> ,
-                                                      p-plan: .
+                                          owl:imports       p-plan: .
 
 #################################################################
 #    Data properties
