@@ -36,7 +36,7 @@ medred:Instrument rdf:type owl:Class ;
                   rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> .
 
 
-###  http://aislab.hevs.ch/ontology/medred#Item
+###  http://aislab.hevs.ch/ontology/medred#Items
 medred:Item rdf:type owl:Class ;
             rdfs:subClassOf p-plan:Step .
 
