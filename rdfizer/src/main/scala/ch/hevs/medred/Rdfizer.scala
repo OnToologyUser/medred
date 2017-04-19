@@ -115,16 +115,16 @@ class Rdfizer(prefix:Iri) {
   def toRdf(item:Item)(implicit m:Model):Unit= item match{
     case sec:Section=>
         val secIri=newIri(sec.name)
-        val secItems=m.createSeq
         +=(secIri,Rdf.a,MedRed.Section)
         +=(secIri,Dcterms.identifier,sec.name)
         +=(secIri,Dcterms.title,sec.label)
-        sec.items.foreach {i=>
-          val iti:RDFNode=newIri(i.name)
-          secItems.add(iti)
+        val secItems:Array[RDFNode]=sec.items.map {i=>
+          val iti=newIri(i.name)
           toRdf(i)
-        }
-        +=(secIri,MedRed.items,secItems)
+          +=(iti,MedRed.ofSection,secIri)
+          iti:RDFNode
+        }.toArray
+        +=(secIri,MedRed.items,m.createList(secItems))
       case question:Question=>
         val qIri=createRdfItem(question)
         +=(qIri,Rdf.a,MedRed.Question)
@@ -183,13 +183,20 @@ class Rdfizer(prefix:Iri) {
     val instIri=newIri(instr.name)
     +=(instIri, Rdf.a,MedRed.Instrument)
     +=(instIri,Dcterms.identifier,instr.name)
-    val items=m.createSeq
-    instr.items.foreach{item=>
-      val iri:RDFNode=newIri(item.name)
-      items.add(iri)
+    val items:Array[RDFNode]=instr.items.map{item=>
+      val iri=newIri(item.name)
       toRdf(item)
+      +=(iri,MedRed.ofInstrument,instIri)
+      iri:RDFNode
+    }.toArray
+    var current=Iri("")
+    items.foreach { r => 
+      val itemi=Iri(r.asResource.getURI) 
+      if (!current.value.isEmpty)
+        +=(itemi,PPlan.isPrecededBy,current)
+      current=itemi  
     }
-    +=(instIri,MedRed.items,items)
+    +=(instIri,MedRed.items,m.createList(items))
     m
   }
   

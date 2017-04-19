@@ -8,6 +8,9 @@ object MedRed extends Vocab {
   override val iri: Iri = "http://aislab.hevs.ch/ontology/medred#"
   val varName = MedRed("varName")
   val hasValue=MedRed("hasValue")
+  val ofInstrument=MedRed("ofInstrument")
+  val ofStudy=MedRed("ofStudy")
+  val ofSection=MedRed("ofSection")
   val items = MedRed("items")
   val dataType = MedRed("dataType")
   val choices=MedRed("choices")
@@ -21,4 +24,6 @@ object MedRed extends Vocab {
   val Questionnaire=MedRed("Questionnaire")
   val Information=MedRed("Information")
   val Choice=MedRed("Choice")
+  val ChoiceList=MedRed("ChoiceList")
+  val ItemList=MedRed("ItemList")
 }
