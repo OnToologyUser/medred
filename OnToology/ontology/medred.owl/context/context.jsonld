@@ -1,22 +1,78 @@
 {
   "@context" : {
+    "ChoiceList" : {
+      "@id" : "http://w3id.org/medred/medred#ChoiceList"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
+    },
     "CaseReportForm" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#CaseReportForm"
+      "@id" : "http://w3id.org/medred/medred#CaseReportForm"
+    },
+    "MultiStep" : {
+      "@id" : "http://purl.org/net/p-plan#MultiStep"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "varName" : {
+      "@id" : "http://w3id.org/medred/medred#varName"
     },
     "Question" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#Question"
+      "@id" : "http://w3id.org/medred/medred#Question"
+    },
+    "Operation" : {
+      "@id" : "http://w3id.org/medred/medred#Operation"
+    },
+    "instruments" : {
+      "@id" : "http://w3id.org/medred/medred#instruments",
+      "@type" : "@id"
+    },
+    "rest" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type" : "@id"
     },
     "Step" : {
       "@id" : "http://purl.org/net/p-plan#Step"
     },
-    "ItemGroup" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#ItemGroup"
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "isStepOfPlan" : {
+      "@id" : "http://purl.org/net/p-plan#isStepOfPlan",
+      "@type" : "@id"
+    },
+    "topObjectProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "@type" : "@id"
+    },
+    "items" : {
+      "@id" : "http://w3id.org/medred/medred#items",
+      "@type" : "@id"
     },
     "studyName" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#studyName"
+      "@id" : "http://w3id.org/medred/medred#studyName"
+    },
+    "Information" : {
+      "@id" : "http://w3id.org/medred/medred#Information"
     },
     "Study" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#Study"
+      "@id" : "http://w3id.org/medred/medred#Study"
+    },
+    "Section" : {
+      "@id" : "http://w3id.org/medred/medred#Section"
+    },
+    "preferredNamespacePrefix" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "Choice" : {
+      "@id" : "http://w3id.org/medred/medred#Choice"
+    },
+    "Datatype" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
     },
     "Plan" : {
       "@id" : "http://www.w3.org/ns/prov#Plan"
@@ -24,17 +80,48 @@
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
     },
+    "dataType" : {
+      "@id" : "http://w3id.org/medred/medred#dataType",
+      "@type" : "@id"
+    },
+    "choices" : {
+      "@id" : "http://w3id.org/medred/medred#choices",
+      "@type" : "@id"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/elements/1.1/publisher"
+    },
+    "List" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+    },
     "Questionnaire" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#Questionnaire"
+      "@id" : "http://w3id.org/medred/medred#Questionnaire"
+    },
+    "Variable" : {
+      "@id" : "http://purl.org/net/p-plan#Variable"
+    },
+    "Entity" : {
+      "@id" : "http://www.w3.org/ns/prov#Entity"
     },
     "Instrument" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#Instrument"
+      "@id" : "http://w3id.org/medred/medred#Instrument"
     },
     "comment" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
     },
+    "ofInstrument" : {
+      "@id" : "http://w3id.org/medred/medred#ofInstrument",
+      "@type" : "@id"
+    },
     "Item" : {
-      "@id" : "http://aislab.hevs.ch/ontology/medred#Item"
+      "@id" : "http://w3id.org/medred/medred#Item"
+    },
+    "preferredNamespaceUri" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
+    },
+    "first" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+      "@type" : "@id"
     }
   }
 }
