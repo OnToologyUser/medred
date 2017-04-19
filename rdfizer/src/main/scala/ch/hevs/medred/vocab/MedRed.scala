@@ -16,7 +16,6 @@ object MedRed extends Vocab {
   val Item=MedRed("Item")
   val Section=MedRed("Section")
   val Field=MedRed("Field")
-  val Variable=MedRed("Variable")
   val Question=MedRed("Question")
   val Operation=MedRed("Operation")
   val Questionnaire=MedRed("Questionnaire")

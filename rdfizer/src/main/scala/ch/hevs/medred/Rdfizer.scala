@@ -149,7 +149,7 @@ class Rdfizer(prefix:Iri) {
   def createRdfVar(field:Field,itemIri:Iri)(implicit m:Model)={
     val varIri=itemIri+"_var"
     +=(itemIri,PPlan.hasOutputVar,varIri)
-    +=(varIri,Rdf.a,MedRed.Variable)
+    +=(varIri,Rdf.a,PPlan.Variable)
     +=(varIri,MedRed.varName,field.variable.varName)
     +=(varIri,MedRed.dataType,Iri(field.fieldType.toXsd.getURI))
   }
