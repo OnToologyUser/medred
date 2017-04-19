@@ -4,65 +4,95 @@ This section provides details for each class and property defined by [Ontology N
    <h3 id="classes" class="list">Classes</h3>
    <ul class="hlist">
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#CaseReportForm"
-            title="http://aislab.hevs.ch/ontology/medred#CaseReportForm">
+         <a href="#http://w3id.org/medred/medred#CaseReportForm" title="http://w3id.org/medred/medred#CaseReportForm">
             <span>case report form</span>
          </a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#Instrument" title="http://aislab.hevs.ch/ontology/medred#Instrument">
-            <span>instrument</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#Choice" title="http://w3id.org/medred/medred#Choice">Choice for a Question</a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#Item" title="http://aislab.hevs.ch/ontology/medred#Item">
-            <span>item</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#Information" title="http://w3id.org/medred/medred#Information">Information</a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#ItemGroup" title="http://aislab.hevs.ch/ontology/medred#ItemGroup">
-            <span>item group</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#Question" title="http://aislab.hevs.ch/ontology/medred#Question">
-            <span>question</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#Questionnaire"
-            title="http://aislab.hevs.ch/ontology/medred#Questionnaire">
-            <span>questionnaire</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#ChoiceList" title="http://w3id.org/medred/medred#ChoiceList">List of Choice elements</a>
       </li>
       <li>
-         <a href="#http://aislab.hevs.ch/ontology/medred#Study" title="http://aislab.hevs.ch/ontology/medred#Study">
-            <span>study</span>
-         </a>
+         <a href="#http://w3id.org/medred/medred#Operation" title="http://w3id.org/medred/medred#Operation">Operation</a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#Questionnaire" title="http://w3id.org/medred/medred#Questionnaire">Operation</a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#Section" title="http://w3id.org/medred/medred#Section">Operation</a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#Study" title="http://w3id.org/medred/medred#Study">Operation</a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#Question" title="http://w3id.org/medred/medred#Question">Question</a>
       </li>
    </ul>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#CaseReportForm">
+   <div class="entity" id="http://w3id.org/medred/medred#CaseReportForm">
       <h3>case report form<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#CaseReportForm</p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#CaseReportForm</p>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#Instrument" title="http://aislab.hevs.ch/ontology/medred#Instrument">instrument</a>
+            <a href="#http://w3id.org/medred/medred#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#Instrument">
-      <h3>instrument<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="http://w3id.org/medred/medred#Choice">
+      <h3>Choice for a Question<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#Instrument</p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Choice</p>
+      <div class="comment">
+         <span class="markdown">Each Choice corresponds to a possible answer to a given Question</span>
+      </div>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Information">
+      <h3>Information<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Information</p>
+      <div class="comment">
+         <span class="markdown">Information corresponds to an instrument item that holds an information for the subject</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Instrument">
+      <h3>Instrument<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Instrument</p>
+      <div class="comment">
+         <span class="markdown">An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc.</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -70,95 +100,342 @@ This section provides details for each class and property defined by [Ontology N
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#CaseReportForm"
-               title="http://aislab.hevs.ch/ontology/medred#CaseReportForm">case report form</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://aislab.hevs.ch/ontology/medred#Questionnaire"
-               title="http://aislab.hevs.ch/ontology/medred#Questionnaire">questionnaire</a>
+            <a href="#http://w3id.org/medred/medred#Questionnaire" title="http://w3id.org/medred/medred#Questionnaire">Operation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://w3id.org/medred/medred#CaseReportForm" title="http://w3id.org/medred/medred#CaseReportForm">case report form</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#instruments" title="http://w3id.org/medred/medred#instruments">instruments</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://w3id.org/medred/medred#ofInstrument" title="http://w3id.org/medred/medred#ofInstrument">of instrument</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#Item">
-      <h3>item<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="http://w3id.org/medred/medred#Item">
+      <h3>Item<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#Item</p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Item</p>
+      <div class="comment">
+         <span class="markdown">An Item is a step of an Instrument</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <span class="dotted" title="http://purl.org/net/p-plan#Step">step</span>
          </dd>
+         <dd>
+            <span class="dotted" title="http://purl.org/dc/terms/title">title</span>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+         </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#ItemGroup" title="http://aislab.hevs.ch/ontology/medred#ItemGroup">item group</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://aislab.hevs.ch/ontology/medred#Question" title="http://aislab.hevs.ch/ontology/medred#Question">question</a>
+            <a href="#http://w3id.org/medred/medred#Information" title="http://w3id.org/medred/medred#Information">Information</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://w3id.org/medred/medred#Operation" title="http://w3id.org/medred/medred#Operation">Operation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://w3id.org/medred/medred#Section" title="http://w3id.org/medred/medred#Section">Operation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://w3id.org/medred/medred#Question" title="http://w3id.org/medred/medred#Question">Question</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
-      </dl>
-   </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#ItemGroup">
-      <h3>item group<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#ItemGroup</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#Item" title="http://aislab.hevs.ch/ontology/medred#Item">item</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#Question">
-      <h3>question<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#Question</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#Item" title="http://aislab.hevs.ch/ontology/medred#Item">item</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#Questionnaire">
-      <h3>questionnaire<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#Questionnaire</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://aislab.hevs.ch/ontology/medred#Instrument" title="http://aislab.hevs.ch/ontology/medred#Instrument">instrument</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="http://aislab.hevs.ch/ontology/medred#Study">
-      <h3>study<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://aislab.hevs.ch/ontology/medred#Study</p>
-      <div class="comment">
-         <span class="markdown">A scientific study</span>
-      </div>
-      <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <span class="dotted" title="http://aislab.hevs.ch/ontology/medred#studyName">study name</span>
+            <a href="#http://w3id.org/medred/medred#ofInstrument" title="http://w3id.org/medred/medred#ofInstrument">of instrument</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#ChoiceList">
+      <h3>List of Choice elements<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#ChoiceList</p>
+      <div class="comment">
+         <span class="markdown">The ChoiceList corresponds to a list of Choice items for a given Question</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">list</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest">rest</span>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">only</span> 
+            <a href="#http://w3id.org/medred/medred#ChoiceList" title="http://w3id.org/medred/medred#ChoiceList">List of Choice elements</a>
+            <sup class="type-c" title="class">c</sup> 
+            <span class="logic">or</span> ({ <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">nil</span> })</dd>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">first</span>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">only</span> 
+            <a href="#http://w3id.org/medred/medred#Choice" title="http://w3id.org/medred/medred#Choice">Choice for a Question</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#choices" title="http://w3id.org/medred/medred#choices">choices</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Operation">
+      <h3>Operation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Operation</p>
+      <div class="comment">
+         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Questionnaire">
+      <h3>Operation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Questionnaire</p>
+      <div class="comment">
+         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Section">
+      <h3>Operation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Section</p>
+      <div class="comment">
+         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://purl.org/net/p-plan#MultiStep">multi step</span>
+         </dd>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Study">
+      <h3>Operation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Study</p>
+      <div class="comment">
+         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity">entity</span>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#instruments" title="http://w3id.org/medred/medred#instruments">instruments</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://w3id.org/medred/medred#studyName" title="http://w3id.org/medred/medred#studyName">study name</a>
             <sup class="type-dp" title="data property">dp</sup>
          </dd>
       </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#Question">
+      <h3>Question<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Question</p>
+      <div class="comment">
+         <span class="markdown">A Question is an Instrument item consisting of an inquiry or query to a subject</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://w3id.org/medred/medred#choices" title="http://w3id.org/medred/medred#choices">choices</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#http://w3id.org/medred/medred#choices" title="http://w3id.org/medred/medred#choices">
+            <span>choices</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#dataType" title="http://w3id.org/medred/medred#dataType">
+            <span>data type</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#instruments" title="http://w3id.org/medred/medred#instruments">
+            <span>instruments</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/medred/medred#ofInstrument" title="http://w3id.org/medred/medred#ofInstrument">
+            <span>of instrument</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="http://w3id.org/medred/medred#choices">
+      <h3>choices<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#choices</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Question" title="http://w3id.org/medred/medred#Question">Question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#ChoiceList" title="http://w3id.org/medred/medred#ChoiceList">List of Choice elements</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#dataType">
+      <h3>data type<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#dataType</p>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/net/p-plan#Variable">variable</span>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Datatype">datatype</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#instruments">
+      <h3>instruments<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#instruments</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Study" title="http://w3id.org/medred/medred#Study">Operation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://w3id.org/medred/medred#ofInstrument">
+      <h3>of instrument<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#ofInstrument</p>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/net/p-plan#isStepOfPlan">is step of plan</span>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties">
+   <h3 id="dataproperties" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#http://w3id.org/medred/medred#studyName" title="http://w3id.org/medred/medred#studyName">
+            <span>study name</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="http://w3id.org/medred/medred#studyName">
+      <h3>study name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#studyName</p>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/dc/terms/title">title</span>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://w3id.org/medred/medred#Study" title="http://w3id.org/medred/medred#Study">Operation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
    </div>
 </div>

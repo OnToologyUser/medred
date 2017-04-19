@@ -1,5 +1,167 @@
+@prefix :        <http://w3id.org/medred/medred#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix p-plan:  <http://purl.org/net/p-plan#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 
+:items
+      a       owl:ObjectProperty .
+
+:Item
+      a       owl:Class ;
+      rdfs:comment "An Item is a step of an Instrument"@en ;
+      rdfs:label "Item"@en ;
+      rdfs:subClassOf p-plan:Step ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty <http://purl.org/dc/terms/title> ;
+                owl:someValuesFrom xsd:string
+              ] .
+
+:Information
+      a       owl:Class ;
+      rdfs:comment "Information corresponds to an instrument item that holds an information for the subject"@en ;
+      rdfs:label "Information"@en ;
+      rdfs:subClassOf :Item .
+
+rdf:List
+      a       owl:Class .
+
+:Questionnaire
+      a       owl:Class ;
+      rdfs:comment "An Operation is an Instrument item that results of a computation, or generated form other items"@en ;
+      rdfs:label "Operation"@en ;
+      rdfs:subClassOf :Instrument .
+
+:studyName
+      a       owl:DatatypeProperty ;
+      rdfs:domain :Study ;
+      rdfs:subPropertyOf <http://purl.org/dc/terms/title> .
+
+rdf:first
+      a       owl:ObjectProperty .
+
+:varName
+      a       owl:DatatypeProperty .
+
+<http://purl.org/dc/terms/title>
+      a       owl:DatatypeProperty .
+
+:CaseReportForm
+      a       owl:Class ;
+      rdfs:subClassOf :Instrument .
+
+:Instrument
+      a       owl:Class ;
+      rdfs:comment "An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc."@en ;
+      rdfs:label "Instrument"@en ;
+      rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> .
+
+:     a       owl:Ontology ;
+      rdfs:comment "This ontology aims to model Medical Data Acquisition Instruments in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en ;
+      <http://purl.org/dc/elements/1.1/publisher>
+              <http://aislab.hevs.ch/> ;
+      <http://purl.org/dc/elements/1.1/title>
+              "MedRed ontology: medical data acquisition model"@en ;
+      <http://purl.org/dc/terms/creator>
+              <http://jeanpi.org> ;
+      <http://purl.org/dc/terms/license>
+              <http://purl.org/NET/rdflicense/cc-by4.0> ;
+      <http://purl.org/vocab/vann/preferredNamespacePrefix>
+              "medred" ;
+      <http://purl.org/vocab/vann/preferredNamespaceUri>
+              "http://w3id.org/medred/medred#" ;
+      owl:imports p-plan: ;
+      owl:versionInfo "0.0.1" .
+
+rdf:rest
+      a       owl:ObjectProperty .
+
+:Choice
+      a       owl:Class ;
+      rdfs:comment "Each Choice corresponds to a possible answer to a given Question"@en ;
+      rdfs:label "Choice for a Question"@en .
+
+:Section
+      a       owl:Class ;
+      rdfs:comment "An Operation is an Instrument item that results of a computation, or generated form other items"@en ;
+      rdfs:label "Operation"@en ;
+      rdfs:subClassOf :Item , p-plan:MultiStep .
+
+:dataType
+      a       owl:ObjectProperty ;
+      rdfs:domain p-plan:Variable ;
+      rdfs:range rdfs:Datatype ;
+      rdfs:subPropertyOf owl:topObjectProperty .
+
+:ChoiceList
+      a       owl:Class ;
+      rdfs:comment "The ChoiceList corresponds to a list of Choice items for a given Question"@en ;
+      rdfs:label "List of Choice elements"@en ;
+      rdfs:subClassOf rdf:List ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom :Choice ;
+                owl:onProperty rdf:first
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom
+                        [ a       owl:Class ;
+                          owl:unionOf
+                                  [ a       rdf:List ;
+                                    rdf:first :ChoiceList ;
+                                    rdf:rest
+                                            [ a       rdf:List ;
+                                              rdf:first
+                                                      [ a       owl:Class ;
+                                                        owl:oneOf
+                                                                [ a       rdf:List ;
+                                                                  rdf:first () ;
+                                                                  rdf:rest ()
+                                                                ]
+                                                      ] ;
+                                              rdf:rest ()
+                                            ]
+                                  ]
+                        ] ;
+                owl:onProperty rdf:rest
+              ] .
+
+:Question
+      a       owl:Class ;
+      rdfs:comment "A Question is an Instrument item consisting of an inquiry or query to a subject"@en ;
+      rdfs:label "Question"@en ;
+      rdfs:subClassOf :Item .
+
+()    a       owl:NamedIndividual .
+
+:Study
+      a       owl:Class ;
+      rdfs:comment "An Operation is an Instrument item that results of a computation, or generated form other items"@en ;
+      rdfs:label "Operation"@en ;
+      rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+
+:ofInstrument
+      a       owl:ObjectProperty ;
+      rdfs:domain :Item ;
+      rdfs:range :Instrument ;
+      rdfs:subPropertyOf p-plan:isStepOfPlan .
+
+:instruments
+      a       owl:ObjectProperty ;
+      rdfs:domain :Study ;
+      rdfs:range :Instrument .
+
+:Operation
+      a       owl:Class ;
+      rdfs:comment "An Operation is an Instrument item that results of a computation, or generated form other items"@en ;
+      rdfs:label "Operation"@en ;
+      rdfs:subClassOf :Item .
+
+:choices
+      a       owl:ObjectProperty ;
+      rdfs:domain :Question ;
+      rdfs:range :ChoiceList .
