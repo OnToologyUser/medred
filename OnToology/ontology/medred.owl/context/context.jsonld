@@ -27,10 +27,6 @@
     "Operation" : {
       "@id" : "http://w3id.org/medred/medred#Operation"
     },
-    "instruments" : {
-      "@id" : "http://w3id.org/medred/medred#instruments",
-      "@type" : "@id"
-    },
     "rest" : {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
       "@type" : "@id"
@@ -76,6 +72,10 @@
     },
     "Plan" : {
       "@id" : "http://www.w3.org/ns/prov#Plan"
+    },
+    "instrument" : {
+      "@id" : "http://w3id.org/medred/medred#instrument",
+      "@type" : "@id"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"

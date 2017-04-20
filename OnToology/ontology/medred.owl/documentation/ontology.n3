@@ -1,3 +1,6 @@
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff5 .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://w3id.org/medred/medred#> <http://purl.org/dc/elements/1.1/title> "MedRed ontology: medical data acquisition model"@en .
 <http://w3id.org/medred/medred#> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/medred/medred#" .
@@ -9,30 +12,32 @@
 <http://w3id.org/medred/medred#> <http://purl.org/dc/terms/creator> <http://jeanpi.org> .
 <http://w3id.org/medred/medred#> <http://purl.org/dc/elements/1.1/publisher> <http://aislab.hevs.ch/> .
 <http://w3id.org/medred/medred#> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology aims to model Medical Data Acquisition Instruments in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffa <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff9 .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#label> "List of Choice elements"@en .
 <http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#comment> "The ChoiceList corresponds to a list of Choice items for a given Question"@en .
-<http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffb .
-<http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffc .
+<http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff9 .
+<http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffa .
 <http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/2002/07/owl#equivalentClass> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffc .
 <http://w3id.org/medred/medred#ChoiceList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff4 .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://w3id.org/medred/medred#items> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://w3id.org/medred/medred#ofInstrument> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/medred/medred#Instrument> .
 <http://w3id.org/medred/medred#ofInstrument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/medred/medred#Item> .
 <http://w3id.org/medred/medred#ofInstrument> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/p-plan#isStepOfPlan> .
 <http://w3id.org/medred/medred#ofInstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/title> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://w3id.org/medred/medred#Information> <http://www.w3.org/2000/01/rdf-schema#label> "Information"@en .
 <http://w3id.org/medred/medred#Information> <http://www.w3.org/2000/01/rdf-schema#comment> "Information corresponds to an instrument item that holds an information for the subject"@en .
 <http://w3id.org/medred/medred#Information> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Item> .
 <http://w3id.org/medred/medred#Information> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://w3id.org/medred/medred#instrument> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/medred/medred#Instrument> .
+<http://w3id.org/medred/medred#instrument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/medred/medred#Study> .
+<http://w3id.org/medred/medred#instrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2000/01/rdf-schema#Datatype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://w3id.org/medred/medred#Questionnaire> <http://www.w3.org/2000/01/rdf-schema#label> "Operation"@en .
 <http://w3id.org/medred/medred#Questionnaire> <http://www.w3.org/2000/01/rdf-schema#comment> "An Operation is an Instrument item that results of a computation, or generated form other items"@en .
 <http://w3id.org/medred/medred#Questionnaire> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Instrument> .
@@ -46,6 +51,12 @@ _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syn
 <http://w3id.org/medred/medred#Question> <http://www.w3.org/2000/01/rdf-schema#comment> "A Question is an Instrument item consisting of an inquiry or query to a subject"@en .
 <http://w3id.org/medred/medred#Question> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Item> .
 <http://w3id.org/medred/medred#Question> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff3 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/title> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff9 <http://www.w3.org/2002/07/owl#allValuesFrom> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff8 .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://w3id.org/medred/medred#Operation> <http://www.w3.org/2000/01/rdf-schema#label> "Operation"@en .
 <http://w3id.org/medred/medred#Operation> <http://www.w3.org/2000/01/rdf-schema#comment> "An Operation is an Instrument item that results of a computation, or generated form other items"@en .
 <http://w3id.org/medred/medred#Operation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Item> .
@@ -53,49 +64,44 @@ _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syn
 <http://w3id.org/medred/medred#choices> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/medred/medred#ChoiceList> .
 <http://w3id.org/medred/medred#choices> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/medred/medred#Question> .
 <http://w3id.org/medred/medred#choices> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#someValuesFrom> <http://w3id.org/medred/medred#Question> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#onProperty> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffb .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://w3id.org/medred/medred#Choice> <http://www.w3.org/2000/01/rdf-schema#label> "Choice for a Question"@en .
 <http://w3id.org/medred/medred#Choice> <http://www.w3.org/2000/01/rdf-schema#comment> "Each Choice corresponds to a possible answer to a given Question"@en .
 <http://w3id.org/medred/medred#Choice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff8 .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://w3id.org/medred/medred#ChoiceList> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://w3id.org/medred/medred#Item> <http://www.w3.org/2000/01/rdf-schema#label> "Item"@en .
 <http://w3id.org/medred/medred#Item> <http://www.w3.org/2000/01/rdf-schema#comment> "An Item is a step of an Instrument"@en .
-<http://w3id.org/medred/medred#Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff5 .
+<http://w3id.org/medred/medred#Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff3 .
 <http://w3id.org/medred/medred#Item> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/p-plan#Step> .
 <http://w3id.org/medred/medred#Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff8 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff7 .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://w3id.org/medred/medred#studyName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/medred/medred#Study> .
 <http://w3id.org/medred/medred#studyName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/title> .
 <http://w3id.org/medred/medred#studyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#allValuesFrom> <http://w3id.org/medred/medred#Choice> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://w3id.org/medred/medred#Instrument> <http://www.w3.org/2000/01/rdf-schema#label> "Instrument"@en .
 <http://w3id.org/medred/medred#Instrument> <http://www.w3.org/2000/01/rdf-schema#comment> "An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc."@en .
 <http://w3id.org/medred/medred#Instrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Plan> .
 <http://w3id.org/medred/medred#Instrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff7 .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#inverseOf> <http://w3id.org/medred/medred#choices> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff6 .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://w3id.org/medred/medred#ChoiceList> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://w3id.org/medred/medred#dataType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 <http://w3id.org/medred/medred#dataType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/p-plan#Variable> .
 <http://w3id.org/medred/medred#dataType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
 <http://w3id.org/medred/medred#dataType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://w3id.org/medred/medred#CaseReportForm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Instrument> .
 <http://w3id.org/medred/medred#CaseReportForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#allValuesFrom> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffa .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ffb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffa <http://www.w3.org/2002/07/owl#allValuesFrom> <http://w3id.org/medred/medred#Choice> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffa <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> .
+_:AX2dX17c00057X3aX15b8a4ae222X3aXX2dX7ffa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://w3id.org/medred/medred#Section> <http://www.w3.org/2000/01/rdf-schema#label> "Operation"@en .
 <http://w3id.org/medred/medred#Section> <http://www.w3.org/2000/01/rdf-schema#comment> "An Operation is an Instrument item that results of a computation, or generated form other items"@en .
 <http://w3id.org/medred/medred#Section> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/medred/medred#Item> .
 <http://w3id.org/medred/medred#Section> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/p-plan#MultiStep> .
 <http://w3id.org/medred/medred#Section> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff7 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff6 .
-_:AX2dX4602d477X3aX15b863f26e1X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://w3id.org/medred/medred#instruments> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/medred/medred#Instrument> .
-<http://w3id.org/medred/medred#instruments> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/medred/medred#Study> .
-<http://w3id.org/medred/medred#instruments> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

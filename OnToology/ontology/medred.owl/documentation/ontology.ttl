@@ -53,6 +53,9 @@ rdf:first
       a       owl:Class ;
       rdfs:subClassOf :Instrument .
 
+rdfs:Datatype
+      a       owl:Class .
+
 :Instrument
       a       owl:Class ;
       rdfs:comment "An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc."@en ;
@@ -128,6 +131,13 @@ rdf:rest
                                   ]
                         ] ;
                 owl:onProperty rdf:rest
+              ] ;
+      owl:equivalentClass
+              [ a       owl:Restriction ;
+                owl:onProperty
+                        [ owl:inverseOf :choices
+                        ] ;
+                owl:someValuesFrom :Question
               ] .
 
 :Question
@@ -150,11 +160,6 @@ rdf:rest
       rdfs:range :Instrument ;
       rdfs:subPropertyOf p-plan:isStepOfPlan .
 
-:instruments
-      a       owl:ObjectProperty ;
-      rdfs:domain :Study ;
-      rdfs:range :Instrument .
-
 :Operation
       a       owl:Class ;
       rdfs:comment "An Operation is an Instrument item that results of a computation, or generated form other items"@en ;
@@ -165,3 +170,8 @@ rdf:rest
       a       owl:ObjectProperty ;
       rdfs:domain :Question ;
       rdfs:range :ChoiceList .
+
+:instrument
+      a       owl:ObjectProperty ;
+      rdfs:domain :Study ;
+      rdfs:range :Instrument .

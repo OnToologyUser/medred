@@ -1,23 +1,25 @@
 digraph ar2dtool_diagram { 
 rankdir=LR;
 size="1501"
-node [shape = rectangle, color="orange"]; "e2dddbaf2120a1ebfb2bc5cf030079e6" "medred:Question" "medred:Instrument" "medred:Item" "medred:Study" "63d4b936a1313c19ac8fcd6154f7cd88" "medred:ChoiceList" "medred:Choice" "p-plan:MultiStep" "p-plan:Activity" "p-plan:Step" "p-plan:Entity" "prov:Entity" "p-plan:Plan" "prov:Activity" "p-plan:Variable" ; /*classes style*/
+node [shape = rectangle, color="orange"]; "medred:Question" "medred:Instrument" "medred:Item" "medred:Study" "rdfs:Datatype" "222e8536e65d36e02d97e35f9828b5ef" "medred:ChoiceList" "medred:Choice" "fe13c8153ac8a28156e253720662e6ad" "p-plan:MultiStep" "p-plan:Activity" "p-plan:Step" "p-plan:Entity" "prov:Entity" "p-plan:Plan" "prov:Activity" "p-plan:Variable" ; /*classes style*/
 	"medred:" -> "p-plan:" [ label = "owl:imports" ];
 	"medred:" -> "http://purl.org/NET/rdflicense/cc-by4.0" [ label = "terms:license" ];
 	"medred:" -> "http://jeanpi.org" [ label = "terms:creator" ];
 	"medred:" -> "http://aislab.hevs.ch/" [ label = ":publisher" ];
-	"NULL" -> "e2dddbaf2120a1ebfb2bc5cf030079e6" [ label = "owl:allValuesFrom" ];
+	"NULL" -> "197c00caf6fcac0272ebd0b9839aca03" [ label = "owl:oneOf" ];
+	"NULL" -> "fe13c8153ac8a28156e253720662e6ad" [ label = "rdf:first" ];
 	"NULL" -> "xsd:string" [ label = "owl:someValuesFrom" ];
+	"NULL" -> "7a023f1eb8de6d279b8819ffe9287aaf" [ label = "rdf:rest" ];
 	"NULL" -> "medred:ChoiceList" [ label = "rdf:first" ];
 	"NULL" -> "terms:title" [ label = "owl:onProperty" ];
-	"NULL" -> "85e3105555be0ec4474d165c32f05320" [ label = "owl:unionOf" ];
-	"NULL" -> "c538bb3fa1caa1a439c8c58a7788231b" [ label = "rdf:rest" ];
-	"NULL" -> "63d4b936a1313c19ac8fcd6154f7cd88" [ label = "rdf:first" ];
+	"NULL" -> "medred:Question" [ label = "owl:someValuesFrom" ];
+	"NULL" -> "fd94eb12d4de05be59d3d88df89555c7" [ label = "owl:onProperty" ];
 	"NULL" -> "rdf:nil" [ label = "rdf:first" ];
 	"NULL" -> "rdf:nil" [ label = "rdf:rest" ];
 	"NULL" -> "medred:Choice" [ label = "owl:allValuesFrom" ];
 	"NULL" -> "rdf:first" [ label = "owl:onProperty" ];
-	"NULL" -> "5071c90891d2b598a602f3aba8cb2e69" [ label = "owl:oneOf" ];
+	"NULL" -> "40c966dcd7baa4c6c3e9aa3f236b7159" [ label = "owl:unionOf" ];
+	"NULL" -> "222e8536e65d36e02d97e35f9828b5ef" [ label = "owl:allValuesFrom" ];
 	"NULL" -> "rdf:rest" [ label = "owl:onProperty" ];
 	"medred:ofInstrument" -> "p-plan:isStepOfPlan" [ label = "rdfs:subPropertyOf" ];
 	"medred:studyName" -> "terms:title" [ label = "rdfs:subPropertyOf" ];
@@ -34,11 +36,11 @@ node [shape = rectangle, color="orange"]; "e2dddbaf2120a1ebfb2bc5cf030079e6" "me
 	"medred:Study" -> "owl:Thing" [ label = "medred:studyName" ];
 	"p-plan:Step" -> "p-plan:Variable" [ label = "p-plan:hasOutputVar" ];
 	"medred:Item" -> "medred:Instrument" [ label = "medred:ofInstrument" ];
+	"medred:Study" -> "medred:Instrument" [ label = "medred:instrument" ];
 	"p-plan:Variable" -> "rdfs:Datatype" [ label = "medred:dataType" ];
 	"p-plan:Activity" -> "p-plan:Step" [ label = "p-plan:correspondsToStep" ];
 	"p-plan:Entity" -> "p-plan:Variable" [ label = "p-plan:correspondsToVariable" ];
 	"medred:Question" -> "medred:ChoiceList" [ label = "medred:choices" ];
-	"medred:Study" -> "medred:Instrument" [ label = "medred:instruments" ];
 	"prov:Activity" -> "prov:Entity" [ label = "prov:used" ];
 	"p-plan:Variable" -> "p-plan:Step" [ label = "p-plan:isInputVarOf" ];
 	"p-plan:Variable" -> "p-plan:Step" [ label = "p-plan:isOutputVarOf" ];
