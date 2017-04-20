@@ -19,16 +19,24 @@
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
     },
     "varName" : {
-      "@id" : "http://w3id.org/medred/medred#varName"
+      "@id" : "http://w3id.org/medred/medred#varName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "Question" : {
-      "@id" : "http://w3id.org/medred/medred#Question"
+      "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Question"
     },
     "Operation" : {
       "@id" : "http://w3id.org/medred/medred#Operation"
     },
+    "ItemList" : {
+      "@id" : "http://w3id.org/medred/medred#ItemList"
+    },
     "rest" : {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type" : "@id"
+    },
+    "ofSection" : {
+      "@id" : "http://w3id.org/medred/medred#ofSection",
       "@type" : "@id"
     },
     "Step" : {
@@ -50,13 +58,14 @@
       "@type" : "@id"
     },
     "studyName" : {
-      "@id" : "http://w3id.org/medred/medred#studyName"
+      "@id" : "http://w3id.org/medred/medred#studyName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
     "Information" : {
       "@id" : "http://w3id.org/medred/medred#Information"
     },
     "Study" : {
-      "@id" : "http://w3id.org/medred/medred#Study"
+      "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Study"
     },
     "Section" : {
       "@id" : "http://w3id.org/medred/medred#Section"
@@ -76,6 +85,9 @@
     "instrument" : {
       "@id" : "http://w3id.org/medred/medred#instrument",
       "@type" : "@id"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
@@ -100,14 +112,20 @@
     "Variable" : {
       "@id" : "http://purl.org/net/p-plan#Variable"
     },
+    "seeAlso" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+    },
     "Entity" : {
       "@id" : "http://www.w3.org/ns/prov#Entity"
     },
     "Instrument" : {
-      "@id" : "http://w3id.org/medred/medred#Instrument"
+      "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Instrument"
     },
     "comment" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "calculation" : {
+      "@id" : "http://w3id.org/medred/medred#calculation"
     },
     "ofInstrument" : {
       "@id" : "http://w3id.org/medred/medred#ofInstrument",
