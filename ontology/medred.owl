@@ -321,7 +321,8 @@ _:genid17 rdf:rest rdf:nil .
 	rdfs:subClassOf disco:Study , prov:Entity ;
 	rdfs:comment "A Study is a medical research investigation composed of several instruments"@en ;
 	rdfs:isDefinedBy <http://w3id.org/medred/medred#> ;
-	rdfs:label "Study"@en .
+	rdfs:label "Study"@en ;
+	rdfs:seeAlso disco:Study .
 # 
 # http://www.w3.org/1999/02/22-rdf-syntax-ns#List
 
