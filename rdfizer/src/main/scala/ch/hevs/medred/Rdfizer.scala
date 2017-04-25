@@ -34,6 +34,7 @@ class Rdfizer(prefix:Iri) {
  
   import Rdfizer._
   import Iri._
+  import ch.hevs.rdftools.rdf.RdfSchema._
   
   def loadRedCap(file:String)={
     var instrumentName=""
@@ -204,9 +205,10 @@ class Rdfizer(prefix:Iri) {
 
 object Rdfizer{  
   def stripQuotes(str:String)=str.replaceAll("^\"|\"$", "")
+  
   def parseChoice(str:String)={
     val split=str.split(", ")
-    println(str)
+    //println(str)
     Choice(split(0),split(1))
   }
  
