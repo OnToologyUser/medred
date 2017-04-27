@@ -15,14 +15,14 @@ trait Item{
 case class Choice(value:Any,label:String)
 
 case class FieldType(id:String){
-  def toXsd=this match {
+ /* def toXsd=this match {
     case TextType=>XSDDatatype.XSDstring
     case LongTextType=>XSDDatatype.XSDstring
     case FileType=>XSDDatatype.XSDbase64Binary
     case OptionType=>XSDDatatype.XSDstring
     case OneOptionType=>XSDDatatype.XSDstring
     case CalculationType=>XSDDatatype.XSDdouble
-  }
+  }*/
 }
 object TextType extends FieldType("text")
 object OptionType extends FieldType("option")

@@ -1,28 +1,33 @@
 package ch.hevs.medred.vocab
 
-import ch.hevs.rdftools.rdf.Vocab
-import ch.hevs.rdftools.rdf._
-import ch.hevs.rdftools.rdf.RdfTools._
+import rdftools.rdf.Vocab
+
+import rdftools.rdf._
+
+import rdftools.rdf.RdfTools._
 
 object MedRed extends Vocab {
-  override val iri: Iri = "http://aislab.hevs.ch/ontology/medred#"
-  val varName = prop("varName")
-  val hasValue=prop("hasValue")
-  val ofInstrument=prop("ofInstrument")
-  val ofStudy=prop("ofStudy")
-  val ofSection=prop("ofSection")
-  val items = prop("items")
+  override val iri: Iri = "http://w3id.org/medred/medred#"
+  val Questionnaire = clazz("Questionnaire")
+  val Information = clazz("Information")
+  val Question = clazz("Question")
+  val Instrument = clazz("Instrument")
+  val Item = clazz("Item")
+  val CaseReportForm = clazz("CaseReportForm")
+  val Study = clazz("Study")
+  val ItemList = clazz("ItemList")
+  val Section = clazz("Section")
+  val ChoiceList = clazz("ChoiceList")
+  val Choice = clazz("Choice")
+  val Operation = clazz("Operation")
+  val choices = prop("choices")
+  val instrument = prop("instrument")
+  val ofInstrument = prop("ofInstrument")
   val dataType = prop("dataType")
-  val choices=prop("choices")
-  val calculation=prop("calculation")
-  val Instrument=clazz("Instrument")
-  val Item=clazz("Item")
-  val Section=clazz("Section")
-  val Question=clazz("Question")
-  val Operation=clazz("Operation")
-  val Questionnaire=clazz("Questionnaire")
-  val Information=clazz("Information")
-  val Choice=clazz("Choice")
-  val ChoiceList=clazz("ChoiceList")
-  val ItemList=clazz("ItemList")
+  val ofSection = prop("ofSection")
+  val items = prop("items")
+  val studyName = prop("studyName")
+  val varName = prop("varName")
+  val calculation = prop("calculation")
+  val hasValue=prop("hasValue")
 }
