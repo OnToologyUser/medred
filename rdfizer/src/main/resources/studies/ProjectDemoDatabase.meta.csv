@@ -1,0 +1,11 @@
+StudyId,StudyName,Description,ProtocolName,Notes,created,modified,
+
+ AsOfDateTime="2017-04-27T16:10:59" 
+ CreationDateTime="2017-04-27T16:10:59" 
+ SourceSystem="REDCap" 
+ SourceSystemVersion="6.16.1">
+<Study OID="Project.ProjectDemoDatabase">
+	<StudyName>Project Demo Database</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "Project Demo Database".</StudyDescription>
+	<ProtocolName>Project Demo Database</ProtocolName>
+	<redcap:ProjectNotes>Project to  evaluate the MedRed ontology</redcap:ProjectNotes>
