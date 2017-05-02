@@ -1,4 +1,6 @@
 @prefix : <http://w3id.org/medred/medred#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,31 +10,27 @@
 @prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#> .
 @prefix p-plan: <http://purl.org/net/p-plan#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-
 
 <http://w3id.org/medred/medred#> a owl:Ontology ;
-        a <http://purl.org/vocommons/voaf#Vocabulary>;
-	owl:imports <http://rdf-vocabulary.ddialliance.org/discovery> , <http://purl.org/net/p-plan#> ;
+	owl:imports <http://rdf-vocabulary.ddialliance.org/discovery> , <http://purl.org/net/p-plan#> , <http://www.w3.org/ns/shacl#> ;
+	dcterms:modified "2017-04-25"^^xsd:date ;
 	dc:publisher <http://aislab.hevs.ch/> ;
+	dcterms:rights "Copyright © 2017 HES-SO Valais-Wallis" ;
 	<http://purl.org/vocab/vann/preferredNamespacePrefix> "medred" ;
-	owl:versionInfo "0.0.1" ;
-	dcterms:creator <http://jeanpi.org> ;
-	dcterms:title "MedRed ontologie: modèle d'aquisition de données cliniques"@fr , "Ontología MedRed: modelo de adquisición de datos clínicos"@es ;
-	dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
-	<http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/medred/medred#" ;
-	rdfs:comment "This ontology aims to model generic Medical Data Acquisition Instruments, which can be interoperable across different clinical data management systems. The ontology is developed in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en ;
-	rdfs:comment "Cette ontologie a été conçue pour representer des Instruments pour l'aquisition de données cliniques, dans le contexte du projet MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@fr ;
-	rdfs:comment "Esta ontología has sido diseñada para representar Instrumentos de captura de datos clínicos, dentro del contexto del proyecto MedRed (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@es ;
-        dcterms:description "This ontology aims to model generic Medical Data Acquisition Instruments, which can be interoperable across different clinical data management systems. The ontology is developed in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en ;
-	dcterms:description "Cette ontologie a été conçue pour representer des Instruments pour l'aquisition de données cliniques, dans le contexte du projet MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@fr ;
 	dcterms:description "Esta ontología has sido diseñada para representar Instrumentos de captura de datos clínicos, dentro del contexto del proyecto MedRed (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@es ;
-       dcterms:issued "2017-04-01"^^xsd:date;
-       dcterms:modified "2017-04-25"^^xsd:date;
-       dcterms:publisher <http://w3id.org/hes-so/aislab>;
-       dcterms:creator <http://w3id.org/people/jpcik/me>;
-       dcterms:rights "Copyright © 2017 HES-SO Valais-Wallis";
-	dcterms:title "MedRed ontology: clinical data acquisition model"@en .
+	dcterms:title "MedRed ontology: clinical data acquisition model"@en ;
+	dcterms:creator <http://w3id.org/people/jpcik/me> ;
+	owl:versionInfo "0.0.1" ;
+	dcterms:issued "2017-04-01"^^xsd:date ;
+	dcterms:creator <http://jeanpi.org> ;
+	dcterms:publisher <http://w3id.org/hes-so/aislab> ;
+	dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+	dcterms:title "Ontología MedRed: modelo de adquisición de datos clínicos"@es ;
+	<http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/medred/medred#" ;
+	dcterms:description "This ontology aims to model generic Medical Data Acquisition Instruments, which can be interoperable across different clinical data management systems. The ontology is developed in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en ;
+	dcterms:title "MedRed ontologie: modèle d'aquisition de données cliniques"@fr ;
+	rdfs:comment "Esta ontología has sido diseñada para representar Instrumentos de captura de datos clínicos, dentro del contexto del proyecto MedRed (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@es , "This ontology aims to model generic Medical Data Acquisition Instruments, which can be interoperable across different clinical data management systems. The ontology is developed in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en , "Cette ontologie a été conçue pour representer des Instruments pour l'aquisition de données cliniques, dans le contexte du projet MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@fr ;
+	dcterms:description "Cette ontologie a été conçue pour representer des Instruments pour l'aquisition de données cliniques, dans le contexte du projet MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@fr .
 # 
 # 
 # #################################################################
@@ -116,6 +114,12 @@ _:genid2 a rdf:List ;
 	rdfs:label "ofSection"@en ;
 	rdfs:seeAlso :Section .
 # 
+# http://w3id.org/medred/medred#validationShape
+
+:validationShape a owl:ObjectProperty ;
+	rdfs:domain :Item ;
+	rdfs:range sh:PropertyShape .
+# 
 # http://www.w3.org/1999/02/22-rdf-syntax-ns#first
 
 rdf:first a owl:ObjectProperty .
@@ -142,6 +146,11 @@ dcterms:title a owl:DatatypeProperty .
 :calculation a owl:DatatypeProperty ;
 	rdfs:domain :Operation ;
 	rdfs:label "calculation"@en .
+# 
+# http://w3id.org/medred/medred#dataValue
+
+:dataValue a owl:DatatypeProperty ;
+	rdfs:domain :Observation .
 # 
 # http://w3id.org/medred/medred#hasValue
 
@@ -172,6 +181,10 @@ dcterms:title a owl:DatatypeProperty .
 # #
 # #################################################################
 # 
+# 
+# http://purl.org/vocommons/voaf#Vocabulary
+
+<http://purl.org/vocommons/voaf#Vocabulary> a owl:Class .
 # 
 # http://w3id.org/medred/medred#CaseReportForm
 
@@ -303,6 +316,11 @@ _:genid17 rdf:rest rdf:nil .
 	rdfs:isDefinedBy <http://w3id.org/medred/medred#> ;
 	rdfs:label "ItemList"@en .
 # 
+# http://w3id.org/medred/medred#Observation
+
+:Observation a owl:Class ;
+	rdfs:subClassOf p-plan:Entity .
+# 
 # http://w3id.org/medred/medred#Operation
 
 :Operation a owl:Class ;
@@ -360,6 +378,10 @@ rdfs:Datatype a owl:Class .
 # #
 # #################################################################
 # 
+# 
+# http://w3id.org/medred/medred#
+
+<http://w3id.org/medred/medred#> a owl:NamedIndividual , <http://purl.org/vocommons/voaf#Vocabulary> .
 # 
 # http://www.w3.org/1999/02/22-rdf-syntax-ns#nil
 
