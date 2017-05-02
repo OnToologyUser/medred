@@ -145,6 +145,11 @@ class Rdfizer(val prefix: Iri) {
 object Rdfizer {
 
   def main(args: Array[String]): Unit = {
+    import collection.JavaConversions._
+    val mm=RDFDataMgr.loadModel("http://w3id.org/medred/medred#")
+    mm.listStatements().foreach { x => println(x)} 
+    
+    
     val rdfizer = new Rdfizer(iri("http://example.org/"))
     //val instr=rdfizer.loadRedCap("src/main/resources/instruments/childs_sleep_habits_questionnaire_cshq.csv")
     val study = CsvImport.loadStudy("src/main/resources/studies/ProjectDemoDatabase.csv")
