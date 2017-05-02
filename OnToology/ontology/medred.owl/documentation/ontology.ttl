@@ -1,14 +1,18 @@
 @prefix :        <http://w3id.org/medred/medred#> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix prov:    <http://www.w3.org/ns/prov#> .
 @prefix p-plan:  <http://purl.org/net/p-plan#> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix disco:   <http://rdf-vocabulary.ddialliance.org/discovery#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
+
+<http://purl.org/vocommons/voaf#Vocabulary>
+      a       owl:Class .
 
 :ItemList
       a       owl:Class ;
@@ -71,6 +75,13 @@ rdfs:Datatype
 rdf:rest
       a       owl:ObjectProperty .
 
+:Section
+      a       owl:Class ;
+      rdfs:comment "A Section is an Instrument item that regroups a subset of Items"@en ;
+      rdfs:isDefinedBy : ;
+      rdfs:label "Section"@en ;
+      rdfs:subClassOf :Item , p-plan:MultiStep .
+
 :dataType
       a       owl:ObjectProperty ;
       rdfs:comment "The dataType estalbishes a relationship between a Variable and the datatype of its data item"@en ;
@@ -86,6 +97,11 @@ rdf:rest
       rdfs:isDefinedBy : ;
       rdfs:label "ChoiceList"@en ;
       rdfs:subClassOf rdf:List ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom :Choice ;
+                owl:onProperty rdf:first
+              ] ;
       rdfs:subClassOf
               [ a       owl:Restriction ;
                 owl:allValuesFrom
@@ -109,11 +125,6 @@ rdf:rest
                         ] ;
                 owl:onProperty rdf:rest
               ] ;
-      rdfs:subClassOf
-              [ a       owl:Restriction ;
-                owl:allValuesFrom :Choice ;
-                owl:onProperty rdf:first
-              ] ;
       owl:equivalentClass
               [ a       owl:Restriction ;
                 owl:onProperty
@@ -122,12 +133,10 @@ rdf:rest
                 owl:someValuesFrom :Question
               ] .
 
-:Section
-      a       owl:Class ;
-      rdfs:comment "A Section is an Instrument item that regroups a subset of Items"@en ;
-      rdfs:isDefinedBy : ;
-      rdfs:label "Section"@en ;
-      rdfs:subClassOf :Item , p-plan:MultiStep .
+:validationShape
+      a       owl:ObjectProperty ;
+      rdfs:domain :Item ;
+      rdfs:range sh:PropertyShape .
 
 :hasValue
       a       owl:DatatypeProperty ;
@@ -151,6 +160,10 @@ rdf:rest
       rdfs:seeAlso disco:Study ;
       rdfs:subClassOf prov:Entity , disco:Study .
 
+:dataValue
+      a       owl:DatatypeProperty ;
+      rdfs:domain :Observation .
+
 :ofInstrument
       a       owl:ObjectProperty ;
       rdfs:comment "It establishes a relationships between an Item and an Instrument"@en ;
@@ -170,6 +183,10 @@ rdf:rest
       rdfs:range :Section ;
       rdfs:seeAlso :Section ;
       rdfs:subPropertyOf p-plan:isStepOfPlan .
+
+:Observation
+      a       owl:Class ;
+      rdfs:subClassOf p-plan:Entity .
 
 :items
       a       owl:ObjectProperty ;
@@ -226,7 +243,7 @@ rdf:rest
 dcterms:title
       a       owl:DatatypeProperty .
 
-:     a       <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology ;
+:     a       <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology , owl:NamedIndividual ;
       rdfs:comment "This ontology aims to model generic Medical Data Acquisition Instruments, which can be interoperable across different clinical data management systems. The ontology is developed in the context of the MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@en , "Esta ontología has sido diseñada para representar Instrumentos de captura de datos clínicos, dentro del contexto del proyecto MedRed (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@es , "Cette ontologie a été conçue pour representer des Instruments pour l'aquisition de données cliniques, dans le contexte du projet MedRed project (https://www.hevs.ch/en/rad-institutes/institute-of-information-systems/projects/medical-research-data-acquisition-platform-14092)"@fr ;
       dc:publisher <http://aislab.hevs.ch/> ;
       dcterms:creator <http://jeanpi.org> , <http://w3id.org/people/jpcik/me> ;
@@ -241,7 +258,7 @@ dcterms:title
               "medred" ;
       <http://purl.org/vocab/vann/preferredNamespaceUri>
               "http://w3id.org/medred/medred#" ;
-      owl:imports p-plan: , <http://rdf-vocabulary.ddialliance.org/discovery> ;
+      owl:imports p-plan: , sh: , <http://rdf-vocabulary.ddialliance.org/discovery> ;
       owl:versionInfo "0.0.1" .
 
 :Instrument
@@ -274,11 +291,6 @@ dcterms:title
       rdfs:range :ChoiceList ;
       rdfs:seeAlso :Choice .
 
-:calculation
-      a       owl:DatatypeProperty ;
-      rdfs:domain :Operation ;
-      rdfs:label "calculation"@en .
-
 :instrument
       a       owl:ObjectProperty ;
       rdfs:comment "The instrument establishes a relationship between a Study and an Instrument"@en ;
@@ -287,3 +299,8 @@ dcterms:title
       rdfs:label "instrument"@en ;
       rdfs:range :Instrument ;
       rdfs:seeAlso :Instrument .
+
+:calculation
+      a       owl:DatatypeProperty ;
+      rdfs:domain :Operation ;
+      rdfs:label "calculation"@en .
