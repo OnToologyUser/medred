@@ -1,8 +1,13 @@
 package ch.hevs.medred
 
 import org.apache.jena.datatypes.xsd.XSDDatatype
+import org.joda.time.DateTime
 
-case class Study(id:String)
+case class Study(id:String,name:String,notes:String,description:String,protocolName:String,
+    version:String,created:DateTime,modified:DateTime,instruments:Seq[Instrument]) {
+  def copy(newInstruments:Seq[Instrument])=Study(id,name,notes,description,protocolName,
+      version,created,modified,newInstruments)
+}
 
 case class Instrument(name:String,items:Seq[Item])
 
@@ -14,51 +19,31 @@ trait Item{
 
 case class Choice(value:Any,label:String)
 
-case class FieldType(id:String){
- /* def toXsd=this match {
-    case TextType=>XSDDatatype.XSDstring
-    case LongTextType=>XSDDatatype.XSDstring
-    case FileType=>XSDDatatype.XSDbase64Binary
-    case OptionType=>XSDDatatype.XSDstring
-    case OneOptionType=>XSDDatatype.XSDstring
-    case CalculationType=>XSDDatatype.XSDdouble
-  }*/
-}
-object TextType extends FieldType("text")
-object OptionType extends FieldType("option")
-object OneOptionType extends FieldType("oneoption")
-object FileType extends FieldType("file")
-object NoType extends FieldType("none")
-object LongTextType extends FieldType("longtext")
-object CalculationType extends FieldType("calc")
-
-
-object FieldType {
-  def parse(str:String)=str match {
-    case "text"=>TextType
-    case "dropdown"=>OptionType
-    case "radio"=>OneOptionType
-    case "file"=>FileType
-    case "notes"=>LongTextType
-    case "calc"=>CalculationType
-    
-  //  case _ =>NoType
-  }
-}
-
 
 case class Section(name:String,label:String,note:String,items:Seq[Item],matrix:Boolean=false) 
-  extends Item//(sectionName,label,note)
+  extends Item
   
 case class Question(name:String,label:String,note:String,field:Field,choices:Seq[Choice]) 
-  extends Item//(questionName,label,note)
+  extends Item
 
 case class Operation(name:String,label:String,note:String,field:Field)
-  extends Item//(operationName,label,note)
+  extends Item
 
-case class Field(fieldName:String,fieldType:FieldType,variable:Variable,computation:Option[String]) 
+case class Field(fieldName:String,control:Control,variable:Variable,
+    validation:Option[ValidationShape],computation:Option[String]) 
 
 case class Note(name:String,label:String,note:String="") 
-  extends Item//(noteName,label,"")
-
+  extends Item
+  
 case class Variable(varName:String,varType:XSDDatatype)
+
+trait PropertyShape
+
+case class ValidationShape(propShapes:Seq[PropertyShape])
+
+case class MaxInclShape(maxVal:Double) extends PropertyShape
+case class MaxExclShape(maxVal:Double) extends PropertyShape
+case class MinInclShape(minVal:Double) extends PropertyShape
+case class MinExclShape(minVal:Double) extends PropertyShape
+
+

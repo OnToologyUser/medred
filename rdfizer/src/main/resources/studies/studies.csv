@@ -1,0 +1,2 @@
+StudyId,StudyName,Description,ProtocolName,Notes,Version,Created,Modified,Creator,Source,SourceVersion
+ProjectDemoDatabase,"Project Demo Database","This file contains the metadata, events, and data for REDCap project Project Demo Database.","Project Demo Database","Project to  evaluate the MedRed ontology",1.0,2017-04-27T16:10:59,2017-04-27T16:10:59,"Jean-Paul Calbimonte",REDCap,6.16.1 

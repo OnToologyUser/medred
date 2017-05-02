@@ -30,4 +30,6 @@ object MedRed extends Vocab {
   val varName = prop("varName")
   val calculation = prop("calculation")
   val hasValue=prop("hasValue")
+  val validationShape=prop("validationShape")
+  val dataValue=prop("dataValue")
 }

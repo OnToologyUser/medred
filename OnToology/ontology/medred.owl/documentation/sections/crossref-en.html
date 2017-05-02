@@ -97,6 +97,35 @@ This section provides details for each class and property defined by MedRed onto
       <div class="comment">
          <span class="markdown">The ChoiceList corresponds to a list of Choice items for a given Question</span>
       </div>
+<div class="example">
+      <strong class="crossreference">Example</strong>
+      <pre>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix ex:   &lt;http://example.com/vocab#&gt; .
+@prefix :     &lt;http://example.com/&gt; .
+
+### In this example, Frank (an insurance agent) acts on behalf of his company for performing
+### a policy sale
+ 
+:policySale
+   a prov:Activity;
+   prov:wasAssociatedWith :insuranceAgent_Frank;
+.
+
+:insuranceAgent_Frank
+   a prov:Person;
+   prov:actedOnBehalfOf :insuranceCompany_A;
+   prov:qualifiedDelegation [
+      a prov:Delegation;
+      prov:agent        :insuranceCompany_A;
+      ex:rewardScheme   "commission";
+      prov:hadActivity  :policySale ;
+   ];
+.
+</pre>
+    </div>
       <dl class="description">
          <dt>is equivalent to</dt>
          <dd>
