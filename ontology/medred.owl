@@ -10,8 +10,9 @@
 @prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#> .
 @prefix p-plan: <http://purl.org/net/p-plan#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix medred: <http://w3id.org/medred/medred#> .
 
-<http://w3id.org/medred/medred#> a owl:Ontology ;
+medred: a owl:Ontology ;
 	owl:imports <http://rdf-vocabulary.ddialliance.org/discovery> , <http://purl.org/net/p-plan#> , <http://www.w3.org/ns/shacl#> ;
 	dcterms:modified "2017-04-25"^^xsd:date ;
 	dc:publisher <http://aislab.hevs.ch/> ;
