@@ -12,8 +12,15 @@
     "CaseReportForm" : {
       "@id" : "http://w3id.org/medred/medred#CaseReportForm"
     },
+    "issued" : {
+      "@id" : "http://purl.org/dc/terms/issued"
+    },
     "MultiStep" : {
       "@id" : "http://purl.org/net/p-plan#MultiStep"
+    },
+    "hasValue" : {
+      "@id" : "http://w3id.org/medred/medred#hasValue",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "label" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
@@ -56,6 +63,9 @@
     "items" : {
       "@id" : "http://w3id.org/medred/medred#items",
       "@type" : "@id"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights"
     },
     "studyName" : {
       "@id" : "http://w3id.org/medred/medred#studyName",
@@ -101,13 +111,19 @@
       "@type" : "@id"
     },
     "publisher" : {
-      "@id" : "http://purl.org/dc/elements/1.1/publisher"
+      "@id" : "http://purl.org/dc/terms/publisher"
+    },
+    "Vocabulary" : {
+      "@id" : "http://purl.org/vocommons/voaf#Vocabulary"
     },
     "List" : {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
     },
     "Questionnaire" : {
       "@id" : "http://w3id.org/medred/medred#Questionnaire"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified"
     },
     "Variable" : {
       "@id" : "http://purl.org/net/p-plan#Variable"
@@ -133,6 +149,9 @@
     },
     "Item" : {
       "@id" : "http://w3id.org/medred/medred#Item"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
     },
     "preferredNamespaceUri" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
