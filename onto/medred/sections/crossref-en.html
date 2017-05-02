@@ -25,6 +25,11 @@ This section provides details for each class and property defined by MedRed onto
          <a href="#ItemList" title="http://w3id.org/medred/medred#ItemList">ItemList</a>
       </li>
       <li>
+         <a href="#Observation" title="http://w3id.org/medred/medred#Observation">
+            <span>observation</span>
+         </a>
+      </li>
+      <li>
          <a href="#Operation" title="http://w3id.org/medred/medred#Operation">Operation</a>
       </li>
       <li>
@@ -47,15 +52,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#CaseReportForm</p>
+      <div class="comment">
+         <span class="markdown">A CaseReportForm is a tool used for a clinical study to collect data from each participating subject</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A CaseReportForm is a tool used for a clinical study to collect data from each participating subject</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -71,15 +76,22 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Choice</p>
+      <div class="comment">
+         <span class="markdown">Each Choice corresponds to a possible answer to a given Question</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">Each Choice corresponds to a possible answer to a given Question</span>
-      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasValue" title="http://w3id.org/medred/medred#hasValue">has value</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
    </div>
    <div class="entity" id="ChoiceList">
       <h3>ChoiceList<sup class="type-c" title="class">c</sup>
@@ -88,15 +100,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#ChoiceList</p>
+      <div class="comment">
+         <span class="markdown">The ChoiceList corresponds to a list of Choice items for a given Question</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">The ChoiceList corresponds to a list of Choice items for a given Question</span>
-      </div>
       <dl class="description">
          <dt>is equivalent to</dt>
          <dd>
@@ -113,19 +125,19 @@ This section provides details for each class and property defined by MedRed onto
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
-            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">first</span>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">only</span> 
-            <a href="#Choice" title="http://w3id.org/medred/medred#Choice">Choice</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dd>
             <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest">rest</span>
             <sup class="type-op" title="object property">op</sup> 
             <span class="logic">only</span> 
             <a href="#ChoiceList" title="http://w3id.org/medred/medred#ChoiceList">ChoiceList</a>
             <sup class="type-c" title="class">c</sup> 
             <span class="logic">or</span> ({ <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">nil</span> })</dd>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">first</span>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">only</span> 
+            <a href="#Choice" title="http://w3id.org/medred/medred#Choice">Choice</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#choices" title="http://w3id.org/medred/medred#choices">choices</a>
@@ -140,15 +152,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Information</p>
+      <div class="comment">
+         <span class="markdown">Information corresponds to an instrument item that holds an information for the subject</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">Information corresponds to an instrument item that holds an information for the subject</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -164,15 +176,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Instrument</p>
+      <div class="comment">
+         <span class="markdown">An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc.</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">An Instrument represents a data acquisition tool for a medical study, e.g. a questionnaire, survey, assessment, etc.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -203,15 +215,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Item</p>
+      <div class="comment">
+         <span class="markdown">An Item is a step of an Instrument</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">An Item is a step of an Instrument</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -235,6 +247,7 @@ This section provides details for each class and property defined by MedRed onto
          <dd>
             <a href="#ofInstrument" title="http://w3id.org/medred/medred#ofInstrument">ofInstrument</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#ofSection" title="http://w3id.org/medred/medred#ofSection">ofSection</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#validationShape" title="http://w3id.org/medred/medred#validationShape">validation shape</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -246,26 +259,19 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#ItemList</p>
+      <div class="comment">
+         <span class="markdown">The ItemList is a list of Item elements</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">The ItemList is a list of Item elements</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">list</span>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dd>
-            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">first</span>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">only</span> 
-            <a href="#Item" title="http://w3id.org/medred/medred#Item">Item</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -275,10 +281,36 @@ This section provides details for each class and property defined by MedRed onto
             <a href="#ItemList" title="http://w3id.org/medred/medred#ItemList">ItemList</a>
             <sup class="type-c" title="class">c</sup> 
             <span class="logic">or</span> ({ <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil">nil</span> })</dd>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#first">first</span>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">only</span> 
+            <a href="#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#items" title="http://w3id.org/medred/medred#items">items</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Observation">
+      <h3>observation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#Observation</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://purl.org/net/p-plan#Entity">entity</span>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#dataValue" title="http://w3id.org/medred/medred#dataValue">data value</a>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
       </dl>
    </div>
@@ -289,15 +321,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Operation</p>
+      <div class="comment">
+         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">An Operation is an Instrument item that results of a computation, or generated form other items</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -318,15 +350,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Question</p>
+      <div class="comment">
+         <span class="markdown">A Question is an Instrument item consisting of an inquiry or query to a subject</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A Question is an Instrument item consisting of an inquiry or query to a subject</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -351,15 +383,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Questionnaire</p>
+      <div class="comment">
+         <span class="markdown">A Questionnaire is an Instrument that consists fo different questions made to the subject</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A Questionnaire is an Instrument that consists fo different questions made to the subject</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -375,15 +407,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Section</p>
+      <div class="comment">
+         <span class="markdown">A Section is an Instrument item that regroups a subset of Items</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A Section is an Instrument item that regroups a subset of Items</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -407,15 +439,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#Study</p>
+      <div class="comment">
+         <span class="markdown">A Study is a medical research investigation composed of several instruments</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A Study is a medical research investigation composed of several instruments</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -454,6 +486,11 @@ This section provides details for each class and property defined by MedRed onto
       <li>
          <a href="#ofSection" title="http://w3id.org/medred/medred#ofSection">ofSection</a>
       </li>
+      <li>
+         <a href="#validationShape" title="http://w3id.org/medred/medred#validationShape">
+            <span>validation shape</span>
+         </a>
+      </li>
    </ul>
    <div class="entity" id="choices">
       <h3>choices<sup class="type-op" title="object property">op</sup>
@@ -462,15 +499,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#choices</p>
+      <div class="comment">
+         <span class="markdown">A relation between an Instrument question, and the list of possible Choice elements</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">A relation between an Instrument question, and the list of possible Choice elements</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -493,15 +530,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#dataType</p>
+      <div class="comment">
+         <span class="markdown">The dataType estalbishes a relationship between a Variable and the datatype of its data item</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">The dataType estalbishes a relationship between a Variable and the datatype of its data item</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -527,15 +564,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#instrument</p>
+      <div class="comment">
+         <span class="markdown">The instrument establishes a relationship between a Study and an Instrument</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">The instrument establishes a relationship between a Study and an Instrument</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -558,15 +595,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#items</p>
+      <div class="comment">
+         <span class="markdown">The items property represents a relationship between an Instrument and its constitutent ItemList</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">The items property represents a relationship between an Instrument and its constitutent ItemList</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -592,15 +629,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#ofInstrument</p>
+      <div class="comment">
+         <span class="markdown">It establishes a relationships between an Item and an Instrument</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">It establishes a relationships between an Item and an Instrument</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -627,15 +664,15 @@ This section provides details for each class and property defined by MedRed onto
       </h3>
       <p>
          <strong>IRI:</strong> http://w3id.org/medred/medred#ofSection</p>
+      <div class="comment">
+         <span class="markdown">It establishes a relationship between an Item and a Section</span>
+      </div>
       <dl class="definedBy">
          <dt>is defined by</dt>
          <dd>
             <a href="http://w3id.org/medred/medred#">http://w3id.org/medred/medred#</a>
          </dd>
       </dl>
-      <div class="comment">
-         <span class="markdown">It establishes a relationship between an Item and a Section</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -655,11 +692,43 @@ This section provides details for each class and property defined by MedRed onto
          </dl>
       </div>
    </div>
+   <div class="entity" id="validationShape">
+      <h3>validation shape<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#validationShape</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Item" title="http://w3id.org/medred/medred#Item">Item</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/ns/shacl#PropertyShape">property shape</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
 </div><div id="dataproperties">
    <h3 id="dataproperties" class="list">Data Properties</h3>
    <ul class="hlist">
       <li>
          <a href="#calculation" title="http://w3id.org/medred/medred#calculation">calculation</a>
+      </li>
+      <li>
+         <a href="#dataValue" title="http://w3id.org/medred/medred#dataValue">
+            <span>data value</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasValue" title="http://w3id.org/medred/medred#hasValue">
+            <span>has value</span>
+         </a>
       </li>
       <li>
          <a href="#studyName" title="http://w3id.org/medred/medred#studyName">studyName</a>
@@ -681,6 +750,44 @@ This section provides details for each class and property defined by MedRed onto
             <dd>
                <a href="#Operation" title="http://w3id.org/medred/medred#Operation">Operation</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="dataValue">
+      <h3>data value<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#dataValue</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Observation" title="http://w3id.org/medred/medred#Observation">observation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasValue">
+      <h3>has value<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#hasValue</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Choice" title="http://w3id.org/medred/medred#Choice">Choice</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
             </dd>
          </dl>
       </div>
@@ -731,4 +838,36 @@ This section provides details for each class and property defined by MedRed onto
          </dl>
       </div>
    </div>
+</div><div id="namedindividuals">
+   <h3 id="namedindividuals" class="list">Named Individuals</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#" title="http://w3id.org/medred/medred#">
+            <span></span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="">
+      <h3>:<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/medred/medred#</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <span class="dotted" title="http://purl.org/vocommons/voaf#Vocabulary">vocabulary</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
 </div>
