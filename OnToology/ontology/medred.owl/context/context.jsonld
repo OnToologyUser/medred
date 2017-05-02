@@ -64,6 +64,10 @@
       "@id" : "http://w3id.org/medred/medred#items",
       "@type" : "@id"
     },
+    "validationShape" : {
+      "@id" : "http://w3id.org/medred/medred#validationShape",
+      "@type" : "@id"
+    },
     "rights" : {
       "@id" : "http://purl.org/dc/terms/rights"
     },
@@ -98,6 +102,9 @@
     },
     "isDefinedBy" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "dataValue" : {
+      "@id" : "http://w3id.org/medred/medred#dataValue"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
@@ -134,6 +141,9 @@
     "Entity" : {
       "@id" : "http://www.w3.org/ns/prov#Entity"
     },
+    "PropertyShape" : {
+      "@id" : "http://www.w3.org/ns/shacl#PropertyShape"
+    },
     "Instrument" : {
       "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Instrument"
     },
@@ -159,6 +169,9 @@
     "first" : {
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
       "@type" : "@id"
+    },
+    "Observation" : {
+      "@id" : "http://w3id.org/medred/medred#Observation"
     }
   }
 }
