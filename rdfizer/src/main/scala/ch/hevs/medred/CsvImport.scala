@@ -26,8 +26,12 @@ object CsvImport {
       case "number" => XSDDatatype.XSDdouble
       case "date_ymd"=> XSDDatatype.XSDdate
       case "date_mdy"=> XSDDatatype.XSDdate
+      case "date_dmy"=> XSDDatatype.XSDdate
+      case "datetime_ymd"=> XSDDatatype.XSDdateTime
       case "email" => XSDDatatype.XSDstring
+      case "ssn" => XSDDatatype.XSDstring
       case "phone" => XSDDatatype.XSDstring
+      case "time" => XSDDatatype.XSDtime
       case "" => XSDDatatype.XSDstring
     }
     case UploadControl=>XSDDatatype.XSDbase64Binary

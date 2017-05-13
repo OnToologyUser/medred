@@ -98,7 +98,7 @@ class Rdfizer(val prefix: Iri) {
   }
 
   def toRdf(choice: Choice)(implicit m: Model) = {
-    val choiceIri = newIri(choice.label + choice.value)
+    val choiceIri = newIri("choice_"+choice.label +"_"+ choice.value)
     +=(choiceIri, RDF.a, MedRed.Choice)
     +=(choiceIri, DCterms.title, choice.label)
     +=(choiceIri, MedRed.hasValue, lit(choice.value))
@@ -146,13 +146,13 @@ object Rdfizer {
 
   def main(args: Array[String]): Unit = {
     import collection.JavaConversions._
-    val mm=RDFDataMgr.loadModel("http://w3id.org/medred/medred#")
-    mm.listStatements().foreach { x => println(x)} 
     
     
     val rdfizer = new Rdfizer(iri("http://example.org/"))
-    //val instr=rdfizer.loadRedCap("src/main/resources/instruments/childs_sleep_habits_questionnaire_cshq.csv")
-    val study = CsvImport.loadStudy("src/main/resources/studies/ProjectDemoDatabase.csv")
+    
+    //val study = CsvImport.loadStudy("src/main/resources/studies/ProjectDemoDatabase.csv")
+    val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
+    
     println(study.name)
         implicit val m = ModelFactory.createDefaultModel
     m.setNsPrefix("ex", rdfizer.prefix.value)
