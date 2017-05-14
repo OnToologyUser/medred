@@ -9,8 +9,19 @@
     "license" : {
       "@id" : "http://purl.org/dc/terms/license"
     },
+    "isItemOfSection" : {
+      "@id" : "http://w3id.org/medred/medred#isItemOfSection",
+      "@type" : "@id"
+    },
+    "hasArms" : {
+      "@id" : "http://w3id.org/medred/medred#hasArms",
+      "@type" : "@id"
+    },
     "CaseReportForm" : {
       "@id" : "http://w3id.org/medred/medred#CaseReportForm"
+    },
+    "ArmList" : {
+      "@id" : "http://w3id.org/medred/medred#ArmList"
     },
     "issued" : {
       "@id" : "http://purl.org/dc/terms/issued"
@@ -22,6 +33,10 @@
       "@id" : "http://w3id.org/medred/medred#hasValue",
       "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
+    "includesInstrument" : {
+      "@id" : "http://w3id.org/medred/medred#includesInstrument",
+      "@type" : "@id"
+    },
     "label" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
     },
@@ -29,11 +44,18 @@
       "@id" : "http://w3id.org/medred/medred#varName",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
+    "isItemOfInstrument" : {
+      "@id" : "http://w3id.org/medred/medred#isItemOfInstrument",
+      "@type" : "@id"
+    },
     "Question" : {
       "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Question"
     },
     "Operation" : {
       "@id" : "http://w3id.org/medred/medred#Operation"
+    },
+    "EventList" : {
+      "@id" : "http://w3id.org/medred/medred#EventList"
     },
     "ItemList" : {
       "@id" : "http://w3id.org/medred/medred#ItemList"
@@ -42,8 +64,8 @@
       "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
       "@type" : "@id"
     },
-    "ofSection" : {
-      "@id" : "http://w3id.org/medred/medred#ofSection",
+    "hasInstruments" : {
+      "@id" : "http://w3id.org/medred/medred#hasInstruments",
       "@type" : "@id"
     },
     "Step" : {
@@ -71,6 +93,9 @@
     "rights" : {
       "@id" : "http://purl.org/dc/terms/rights"
     },
+    "Arm" : {
+      "@id" : "http://w3id.org/medred/medred#Arm"
+    },
     "studyName" : {
       "@id" : "http://w3id.org/medred/medred#studyName",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
@@ -96,10 +121,6 @@
     "Plan" : {
       "@id" : "http://www.w3.org/ns/prov#Plan"
     },
-    "instrument" : {
-      "@id" : "http://w3id.org/medred/medred#instrument",
-      "@type" : "@id"
-    },
     "isDefinedBy" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
     },
@@ -112,6 +133,9 @@
     "dataType" : {
       "@id" : "http://w3id.org/medred/medred#dataType",
       "@type" : "@id"
+    },
+    "LongitudinalStudy" : {
+      "@id" : "http://w3id.org/medred/medred#LongitudinalStudy"
     },
     "choices" : {
       "@id" : "http://w3id.org/medred/medred#choices",
@@ -138,14 +162,25 @@
     "seeAlso" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#seeAlso"
     },
+    "isEventOfArm" : {
+      "@id" : "http://w3id.org/medred/medred#isEventOfArm",
+      "@type" : "@id"
+    },
     "Entity" : {
       "@id" : "http://www.w3.org/ns/prov#Entity"
+    },
+    "includesEvents" : {
+      "@id" : "http://w3id.org/medred/medred#includesEvents",
+      "@type" : "@id"
+    },
+    "InstrumentList" : {
+      "@id" : "http://w3id.org/medred/medred#InstrumentList"
     },
     "PropertyShape" : {
       "@id" : "http://www.w3.org/ns/shacl#PropertyShape"
     },
     "Instrument" : {
-      "@id" : "http://rdf-vocabulary.ddialliance.org/discovery#Instrument"
+      "@id" : "http://w3id.org/medred/medred#Instrument"
     },
     "comment" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
@@ -153,15 +188,18 @@
     "calculation" : {
       "@id" : "http://w3id.org/medred/medred#calculation"
     },
-    "ofInstrument" : {
-      "@id" : "http://w3id.org/medred/medred#ofInstrument",
-      "@type" : "@id"
-    },
     "Item" : {
       "@id" : "http://w3id.org/medred/medred#Item"
     },
+    "hasChoices" : {
+      "@id" : "http://w3id.org/medred/medred#hasChoices",
+      "@type" : "@id"
+    },
     "description" : {
       "@id" : "http://purl.org/dc/terms/description"
+    },
+    "StudyEvent" : {
+      "@id" : "http://w3id.org/medred/medred#StudyEvent"
     },
     "preferredNamespaceUri" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
@@ -172,6 +210,10 @@
     },
     "Observation" : {
       "@id" : "http://w3id.org/medred/medred#Observation"
+    },
+    "includedInStudy" : {
+      "@id" : "http://w3id.org/medred/medred#includedInStudy",
+      "@type" : "@id"
     }
   }
 }
