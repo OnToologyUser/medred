@@ -1,3 +1,5 @@
 StudyId,StudyName,Description,ProtocolName,Notes,Version,Created,Modified,Creator,Source,SourceVersion
-ProjectDemoDatabase,"Project Demo Database","This file contains the metadata, events, and data for REDCap project Project Demo Database.","Project Demo Database","Project to  evaluate the MedRed ontology",1.0,2017-04-27T16:10:59,2017-04-27T16:10:59,"Jean-Paul Calbimonte",REDCap,6.16.1 
-AllInstruments,"Collection of all instruments","","","",,2017-04-27T16:10:59,2017-04-27T16:10:59,,,
+ProjectDemoDatabase,Project Demo Database,"This file contains the metadata, events, and data for REDCap project Project Demo Database.",Project Demo Database,Project to  evaluate the MedRed ontology,1,2017-04-27T16:10:59,2017-04-27T16:10:59,Jean-Paul Calbimonte,REDCap,6.16.1 
+AllInstruments,Collection of all instruments,,,,,2017-04-27T16:10:59,2017-04-27T16:10:59,,,6.16.1 
+D1NAMO,D1NAMO,"Database for the D1NAMO instrument for qualitative evaluation",D1NAMO protocol for qualitytive evaulation,For the Nanotera D1NAMO project,1,2016-08-27T16:10:59,2016-08-27T16:10:59,Fabien Dubosson,REDCAp,6.16.1 
+WORRK,WORRK,"Database for the WORRK instrument study",WORRK protocol,,1,2016-08-27T16:10:59,2016-08-27T16:10:59,Roger Hilfiker,REDCAp,6.16.1 

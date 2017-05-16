@@ -150,8 +150,9 @@ object Rdfizer {
     
     val rdfizer = new Rdfizer(iri("http://example.org/"))
     
-    //val study = CsvImport.loadStudy("src/main/resources/studies/ProjectDemoDatabase.csv")
-    val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
+    val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
+    //val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
+    //val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
     
     println(study.name)
         implicit val m = ModelFactory.createDefaultModel
