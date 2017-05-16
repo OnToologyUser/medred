@@ -15,7 +15,13 @@ Furthermore, for the long term, we will set the foundations of an HES-SO service
 
 Project web site: [MedRed](https://www.hevs.ch/fr/mini-sites/projets-produits/aislab/projets/medical-research-data-acquisition-platform-14092)
 
+## MedRed ontology
+
+In the context of the project, the MedRed ontology has been developed, with the goal of representing clinical data acquisition metadata. The ontology is available at (http://w3id.org/medred/medred#)
+
 ### Evaluations
+
+The ontology was validated with a set of heterogeneous instruments from the REDCap shared library. Due to licnsing terms these cannot be freely shared, but we provide references for each one below.
 
 1. Owens JA, Spirito A, McGuinn M. The Children's Sleep Habits Questionnaire (CSHQ): psychometric properties of a survey instrument for school-aged children. Sleep 2000, Dec 15; 23 (8):1043-51
 2. Wallston KA, Rothman RL, Cherrington A.Psychometric properties of the Perceived Diabetes Self-Management Scale (PDSMS).J Behav Med. 2007 Oct;30(5):395-401. Epub 2007 May 24.
