@@ -125,7 +125,8 @@
       "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
     },
     "dataValue" : {
-      "@id" : "http://w3id.org/medred/medred#dataValue"
+      "@id" : "http://w3id.org/medred/medred#dataValue",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
@@ -136,10 +137,6 @@
     },
     "LongitudinalStudy" : {
       "@id" : "http://w3id.org/medred/medred#LongitudinalStudy"
-    },
-    "choices" : {
-      "@id" : "http://w3id.org/medred/medred#choices",
-      "@type" : "@id"
     },
     "publisher" : {
       "@id" : "http://purl.org/dc/terms/publisher"
@@ -186,7 +183,8 @@
       "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
     },
     "calculation" : {
-      "@id" : "http://w3id.org/medred/medred#calculation"
+      "@id" : "http://w3id.org/medred/medred#calculation",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "Item" : {
       "@id" : "http://w3id.org/medred/medred#Item"

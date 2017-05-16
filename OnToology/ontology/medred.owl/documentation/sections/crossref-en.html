@@ -87,6 +87,11 @@ This section provides details for each class and property defined by MedRed onto
             <a href="#isEventOfArm" title="http://w3id.org/medred/medred#isEventOfArm">isEventOfArm</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="ArmList">
@@ -186,7 +191,7 @@ This section provides details for each class and property defined by MedRed onto
          <dt>is equivalent to</dt>
          <dd>
             <span class="logic">inverse</span> 
-            <span class="dotted" title="http://w3id.org/medred/medred#choices">choices</span>
+            <a href="#hasChoices" title="http://w3id.org/medred/medred#hasChoices">hasChoices</a>
             <sup class="type-op" title="object property">op</sup> 
             <span class="logic">some</span> 
             <a href="#Question" title="http://w3id.org/medred/medred#Question">Question</a>
@@ -293,6 +298,12 @@ This section provides details for each class and property defined by MedRed onto
             <a href="#includesInstrument" title="http://w3id.org/medred/medred#includesInstrument">includesInstrument</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isItemOfInstrument" title="http://w3id.org/medred/medred#isItemOfInstrument">isItemofInstrument</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Arm" title="http://w3id.org/medred/medred#Arm">Arm</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Observation" title="http://w3id.org/medred/medred#Observation">Observation</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -447,6 +458,11 @@ This section provides details for each class and property defined by MedRed onto
          <dd>
             <a href="#dataValue" title="http://w3id.org/medred/medred#dataValue">dataValue</a>
             <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Instrument" title="http://w3id.org/medred/medred#Instrument">Instrument</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1115,6 +1131,10 @@ This section provides details for each class and property defined by MedRed onto
                <a href="#Operation" title="http://w3id.org/medred/medred#Operation">Operation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+            </dd>
          </dl>
       </div>
    </div>
@@ -1140,6 +1160,10 @@ This section provides details for each class and property defined by MedRed onto
             <dd>
                <a href="#Observation" title="http://w3id.org/medred/medred#Observation">Observation</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
             </dd>
          </dl>
       </div>

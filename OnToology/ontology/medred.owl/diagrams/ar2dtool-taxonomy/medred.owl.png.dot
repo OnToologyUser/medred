@@ -1,7 +1,7 @@
 digraph ar2dtool_diagram { 
 rankdir=LR;
 size="1000"
-node [shape = rectangle, color="black"]; "medred:Questionnaire" "medred:StudyEvent" "medred:Information" "medred:Question" "medred:EventList" "medred:Instrument" "rdf:List" "medred:Item" "medred:Arm" "medred:CaseReportForm" "medred:Study" "medred:LongitudinalStudy" "medred:InstrumentList" "medred:ItemList" "medred:Section" "medred:ChoiceList" "medred:ArmList" "medred:Operation" "medred:Observation" "p-plan:MultiStep" "p-plan:Activity" "p-plan:Step" "p-plan:Entity" "p-plan:Bundle" "prov:Bundle" "prov:Entity" "p-plan:Plan" "prov:Plan" "prov:Activity" ; /*classes style*/
+node [shape = rectangle, color="black"]; "medred:Questionnaire" "medred:StudyEvent" "medred:Information" "medred:Question" "medred:EventList" "rdf:List" "medred:Instrument" "medred:Item" "medred:Arm" "medred:CaseReportForm" "medred:Study" "medred:LongitudinalStudy" "medred:InstrumentList" "medred:ItemList" "medred:Section" "medred:ChoiceList" "medred:ArmList" "medred:Operation" "medred:Observation" "p-plan:MultiStep" "p-plan:Activity" "p-plan:Step" "p-plan:Entity" "p-plan:Bundle" "prov:Bundle" "prov:Entity" "p-plan:Plan" "prov:Plan" "prov:Activity" ; /*classes style*/
 	"prov:Plan" -> "prov:Entity" [ label = "rdfs:subClassOf" ];
 	"sh:PropertyGroup" -> "rdfs:Resource" [ label = "rdfs:subClassOf" ];
 	"medred:Question" -> "medred:Item" [ label = "rdfs:subClassOf" ];
