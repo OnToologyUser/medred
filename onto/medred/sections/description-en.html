@@ -1,2 +1,159 @@
-I<h2 id="desc" class="list">MedRed ontology: medical data acquisition model: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<p>This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</p>
+<h2 id="desc" class="list">MedRed ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<h3>Design Principles</h3>
+
+<p>The MedRed Ontology design is founded on the representation of a generic clinical study, understood as a collection of data acquisition instruments, such as questionnaires, forms and other data input means. 
+In the following we present the design principles behind the ontology, namely the structure of the core model, and the fundamental features of composition, derivation, provenance, and validation.</p>
+
+<h4>Core Model</h4>
+<p>According to the ODM model of CDISC<cite><a href="#cdisc" class="bibref">[ODM-CDISC]</a></cite>, a Study has a metadata version element in which the different definitions of its sub-elements are contained, i.e. a Form, Item, and Item Group definition. 
+These commonly materialize as instrument, question and section definitions, respectively, in a questionnaire-based instrument. 
+Taking this model as a starting point, the MedRed ontology first separates the metadata versioning aspects out of the core model, as this is a cross-cutting consideration.</p>
+ 
+<p>A MedRed <code>Study</code> is indeed composed of one or more <code>Instrument</code> elements, each of which has an ordered sequence of steps, modeled as <code>Item</code> elements. 
+Different kinds of Items exist, such as Question, Information, or Operation items. 
+Different sub-classes of Instrument may exist, such as a questionnaire, or case form, etc.</p>
+ 
+<p>Items may be grouped in <code>Section</code> elements, providing a logical and nestable organization to the items of the instrument. 
+Each item identifies its previous item in the sequence, and they may be subject to conditional activation to allow branching logic in the sequence of steps. 
+For each item a corresponding <code>Variable</code> can be specified, which represents the data that will be captured (e.g. via a question or form entry). 
+Variables are associated to data types, and constraints can be defined upon them, e.g. allowed values, rules, etc. </p>
+
+<p>Moreover, a study can be organized in different <code>Arm</code> elemetns, or branches that focus on a particular characteristic for comparison or testing purposes (e.g. different arms for testing different drugs in parallel).
+MedRed also allows defining <code>StudyEvent</code> elements that can help representing longitudinal studies, where different instruments are used over longer periods of time (e.g. demographics at the beginning of the study, a first set of instruments after 3 months, another set 2 months later, etc.)</p>
+
+<h4>Composition</h4>
+<p>The ability to compose studies and instruments using other items and elements is crucial for the MedRed metadata model. 
+For instance, it is possible to combine different existing instruments from other studies in a new one. Similarly, it is possible to combine questions and items of several instruments to elaborate a new sequence of input items for an instrument. 
+This should allow the reuse of existing metadata and studies that have already been successfully implemented, preventing from reinventing the wheel.</p>
+
+
+<p>A generic model that was created with the purpose of representing a sequence of scientific activities in a plan is the P-Plan ontology<cite><a href="#pplan" class="bibref">[P-PLAN]</a></cite>. Introducing the basic concepts of <code>p-plan:Plan</code> and <code>p-plan:Step</code>, it allows nesting and constructing different structures of planned items.
+For this reason, it was chosen as a basis for structuring items and instruments in MedRed, allowing very flexible composition designs.</p>
+
+<div id="figure_composition" class="figure" style="text-align: center;">
+<img src="sections/composition.png" alt="Compositions in MedRed." width="636" height="170">
+   <div style="text-align: center;">
+	<a href="#figure_composition">Figure 1</a>. Composition and derivation in MedRed. Left: a sample instrument including its organization in sections and items. Right: a study may incorporate instruments created previously (e.g. Hip survey) or create new instruments reusing items from others (e.g. the eating disorder questionnaire).
+   </div>
+</div>
+
+
+<h4>Derivation</h4>
+<p>Reusing instruments and items from existing studies also implies that one can be derived from others.
+One instrument can be amended or extended according to the needs of a different context (e.g. a new study on a different population), by adding new questions or modifying their validation rules, possible values, etc. 
+The representation of this information helps keeping trace of these relationships, as exemplified in Fig. 1.</p>
+
+<h4>Provenance</h4>
+As all studies, instruments, and items can bee seen as traceable resources (or entities according to the PROV model<cite><a href="#provo" class="bibref">[PROV-O]</a>lebo2013</cite>), MedRed allows keeping record of provenance information, including attribution, versioning, authorship, etc. 
+The PROV-O ontology has precisely been defined for this purpose, and as such, we have chosen to align the MedRed Ontology core concepts with this model, so that this type of information can be recorded accordingly.
+For instance, as shown in Figure 2, this allows indicating specialization, revision, source, attribution, and other related information.
+
+<div id="figure_provenance" class="figure" style="text-align: center;">
+<img src="sections/provenance.png" alt="Provenance in MedRed." width="636" height="100">
+   <div style="text-align: center;">
+	<a href="#figure_provenance">Figure 2</a>. Provenance examples in the MedRed ontology.
+   </div>
+</div>
+
+
+<h4>Validation.</h4>
+<p>In the context of clinical data capture, it is essential to guarantee certain data quality standards, and validation is crucial for defining effective instruments. 
+MedRed opts for reusing existing constraint representation languages in order to incorporate notions of validation into the model.
+These validation rules should allow flexible definitions, from simple value ranges, to complex pattern matching and combinations of complex rules. 
+For this reason, we opted for integrating shape properties, from the SHACL recommendation language<cite><a href="#shacl" class="bibref">[SHACL]</a></cite> for constraints, recently endorsed by W3C.</p>
+
+<h3>Implementation</h3>
+
+<p>Following the design principles stated above, the MedRed ontology was implemented in the OWL<cite><a href="#owl2" class="bibref">[OWL2]</a></cite> language, using the Protégé development environment.</p>
+
+<p>As specified previously, the core model includes the fundamental concepts behind a clinical study: the <code>medred:Study</code> itself, the definition of the <code>medred:Instrument</code> items that compose it, at its inner sub-elements: <code>medred:Section</code>, <code>medred:Item</code>, <code>medred:Operation</code>, as well as other elements as a study <code>medred:Arm</code> and <code>medred:StudyEvent</code>.</p>
+
+<p>It has been necessary to cover at least those concepts described in the ODM meta-model to guarantee a minimal compliance with that standard.
+Furthermore, MedRed goes beyond ODM, as it extends the P-Plan ontology<cite><a href="#pplan" class="bibref">[P-PLAN]</a></cite> to incorporate nesting and composing of items in a given instrument (<code>medred:Step</code> and <code>medred:MultiStep</code> in P-Plan). </p>
+
+<div id="figure_imports" class="figure" style="text-align: center;">
+<img src="sections/imports.png" alt="MedRed ontology." width="436" height="170">
+   <div style="text-align: center;">
+	<a href="#figure_imports">Figure 3</a>. MedRed ontology network: relationship with external vocabularies.   </div>
+</div>
+
+<p>Given that P-Plan extends the PROV-O model, each instrument and item definition is itself a traceable entity, which can be annotated according to the PROV model, including versions, derivative instruments, etc., which are indeed common for studies that evolve with time and that reuse previous instruments.</p>
+
+<p>MedRed also aligns to the DDI-RDF vocabulary<cite><a href="#ddirdf" class="bibref">[DDI-RDF]</a></cite>. for describing scientific metadata, as it includes concepts such as Instrument and Questionnaire.
+Also, for the validation of data acquisition items, MedRed reuses property paths from the SHACL vocabulary<cite><a href="#shacl" class="bibref">[SHACL]</a></cite>, which are specifically designed to represent this type of constraints. 
+These dependencies are depicted in Fig. 3.</p>
+
+
+<p>The central concepts in MedRed (see Fig. 4 for an overview), as explained above, surround those of an <code>medred:Instrument</code> and <code>medred:Item</code>. 
+Subclasses of these allow for a further specialization of the type of study (e.g. based on questionnaires, entry forms, etc.), or other extensions that could be tailored for more specific uses.</p>
+
+<p>The unique identification of each of these items is a fundamental principle for allowing referencing and composing new instruments based on existing ones, therefore meeting the design principles discussed before.
+Moreover, the inclusion of the <code>medred:Section</code> concepts allows an unrestricted number of levels and nesting of instrument items, which allows a modular organization of the clinical study.
+In each case, the order of the constituent items is important, and this is why extensions of RDF Lists have been used for specifying sequences of items at all levels.</p> 
+
+<div id="figure_medred" class="figure" style="text-align: center;">
+<img src="sections/medred.png" alt="MedRed ontology." width="936" height="470">
+   <div style="text-align: center;">
+	<a href="#figure_medred">Figure 4</a>. MedRed ontology: an overview of the central concepts.  </div>
+</div>
+
+
+<p>The salient points of the implementation can be explained through the following examples (Prefixes are used as defined in <a href="http://prefix.cc">http://prefix.cc</a>). <code>medred</code> is used for the MedRed Ontology.) 
+The example in Listing 1 shows a 3-month follow-up study definition, including six instruments: one for collecting demographics, another for base line data, 3 monthly questionnaires and a final completion instrument. </p>
+
+<p>Listing 1: Study following the MedRed ontology</p>
+
+<pre>
+ex:3MonthFollowUpStudy  a medred:Study ;
+  dcterms:description "General health conditions of a patient study ..." ;
+  dcterms:identifier  "3MonthFollowUpStudy" ;
+  dcterms:title "3-Month follow up study" ;
+  medred:hasInstruments (ex:demographics ex:baseline_data ex:month_1_data ex:month_2_data ex:month_3_data ex:completion_data).
+</pre>
+
+
+<p>Each of these instruments can also be fully described, e.g. in terms of their constituent Item elements, as in Listing 2. The instrument is organized in different sections and may include provenance information including authoring, related publications, revisions, etc.</p>
+
+<p>Listing 2: An Instrument description using the MedRed ontology</p>
+
+<pre>
+ex:expanded_prostate_cancer_index_composite_epic_v2 a  medred:Instrument ;
+  medred:items ( ex:epic2200_section1 ex:epic2200_section2 ex:epic2200_section3 
+                 ex:epic2200_section4 ex:epic2200_section5 ex:epic2200_section6) ;
+  dcterms:identifier    "expanded_prostate_cancer_index_composite_epic_2200" ;
+  prov:wasAttributedTo  ex:wei, ex:dunn, ex:litwin, ex:sandler;
+  prov:generatedAtTime  "2011-07-16T01:52:02Z"^^xsd:dateTime;
+  prov:hadPrimarySource ex:epic_article_Urology_56_2000;
+  prov:wasRevisionOf     :ex:expanded_prostate_cancer_index_composite_epic_v1;                 
+</pre>
+
+<p>In fact, all components of the study, and instrument can be annotated with provenance information in order to capture how and when they were defined. In the following examples we may omit provenance due to space constraints. 
+In Listing 3 a specific item is described, in this case a question from the previous instrument. The question and its text, the associated variable, and possible display choices, are defined at this point. </p>
+
+<p>Listing 3: A Question item described with the MedRed ontology</p>
+<pre>
+ex:epic_q48 a medred:Question ;
+  medred:isItemofSection ex:section3 ; dcterms:identifier  "epic_q48" ;
+  dcterms:title       "14. How often have you had crampy pain in your abdomen, pelvis or rectum?" ;
+  medred:choices      ( ex:Morethanonceaday_1 ex:Aboutonceaday_2 ex:Morethanonceaweek_3 
+                        ex:Aboutonceaweek_4 ex:Rarelyornever_5 ) ;
+  pplan:hasOutputVar  ex:epic_q48_var .
+</pre>
+
+
+<p>Furthermore, the variable associated to a question (or any <code>medred:Item</code>) can be specified, along with validation rules expressed using SHACL, as in Listing 4. A Cholesterol value is specified, and minimal and maximal values are indicated using a SHACL shape. </p>
+
+<p>Listing 4: Item validation using the MedRed ontology and SHACL.</p>
+<pre>
+ex:chol_3 a medred:Question ;
+  dcterms:identifier "chol_3" ; dcterms:title "Cholesterol (mg/dL)" ;
+  pplan:hasOutputVar ex:chol_3_var ;
+  medred:isItemOfSection ex:month_3_datasection1 ;
+  medred:validationShape ex:chol_3_shape .
+
+ex:chol_3_shape a sh:PropertyShape ; sh:path medred:dataValue ;
+  sh:maxInclusive "300.0" ;  sh:minInclusive "100.0" .
+  
+ex:chol_3_var a pplan:Variable ; medred:dataType xsd:double ; medred:varName  "chol_3" .
+</pre>

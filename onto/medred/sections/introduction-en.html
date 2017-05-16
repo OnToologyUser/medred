@@ -1,5 +1,32 @@
 <h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<p>This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</p>
+<p>Clinical research activities require the involvement of heterogeneous individuals of a given population, needed to assess and validate biomedical hypotheses concerning behavior, treatments, interventions and other studies. </p>
+
+<p>Clinical trials and other such studies can be complex and span long periods of time, and the data acquisition process requires careful management and accuracy. 
+While in the past, manually filled forms were the norm for acquiring data in this context, nowadays the use of Electronic Data Capture (EDC) solutions have shown to improve the efficiency of the process, while maintaining quality and accuracy standards<cite><a href="#bruland2012" class="bibref">[Bruland2012]</a><a href="#souza2007" class="bibref">[Souza2007]</a></cite>. </p>
+
+<p>In particular, EDC helps increasing the efficiency of the entire data management process, reducing and/or eliminating data transcription and transmission times, providing data validation and input enforcement, or helping scheduling the site visits<cite>{el2009,harris2009}</cite>. 
+Furthermore, EDC is expected to provide faster access to data, which can help to perform live-analytics and decision making over the existing acquired datasets. 
+Due to these benefits, clinical research organizations, pharmaceutical companies, and university hospitals, among others, make use of EDC and related clinical data management systems such as OpenClinica, REDCap, TrialDB, InForm, Medidata Rave, Datatrak, to name a few<cite><a href="#shah2010" class="bibref">[Shah2010]</a></cite>.</p>
+
+
+<p>Given the large number of clinical studies that are performed worldwide, and their complexity, it has become a need to share their results, as well as their structure and metadata.
+This would make it possible to perform tasks such as: validating existing protocols, reusing and refining clinical research instruments, extending previous studies, performing surveys and systematic analytics of clinical trials, etc.
+To achieve this, it is first necessary to tackle the heterogeneity issues regarding the description and representation of these studies. </p>
+
+<p>Significant efforts have been made to agree on standards for clinical studies, and the ODM (Operational Data Model)<cite><a href="#cdisc" class="bibref">[ODM-CDISC]</a></cite> proposed by CDISC (Clinical Data Interchange Standards Consortium: http://cdisc.org) has been adopted by several regulating bodies and also EDC software tools. 
+Based on XML, ODM serves as a communication interface of clinical study data, but it lacks a semantically-rich model able to capture the different  relationships among the different components of a clinical study, as well as linking with other standard vocabularies.
+Therefore, it is insufficient as a foundational model for achieving semantic interoperability for clinical studies and trials.</p>
+
+<p>In this document we present the MedRed Ontology, a semantically-rich model designed to represent the metadata of clinical studies, including the definition of its constituting instruments, the different steps of each one, their organization in arms and events, as well as the data variables captured using them. 
+Thanks to its integration with existing vocabularies (PROV-O<cite><a href="#provo" class="bibref">[PROV-O]</a></cite> and P-Plan<cite><a href="#pplan" class="bibref">[P-PLAN]</a></cite>), the MedRed ontology can also capture complex relationships among instruments and studies, including composition, derivation, authoring, and versioning. </p>
+
+<p>These features make it possible to track changes of a study across time, or indicate that a study was designed based on an existing one.
+MedRed also includes the representation of validation conditions on the clinical instruments, using the SHACL recommendation<cite><a href="#shacl" class="bibref">[SHACL]</a></cite> for representing constraints.</p>
+
+<p>The MedRed Ontology has been validated primarily using a series of running pilot studies led by the Institute of Health of HES-SO Valais-Wallis in Switzerland, in the context of the MedRed acquisition project (MedRed: http://w3id.org/medred/project). 
+It has also been applied to a heterogeneous collection of study metadata descriptions extracted form the available REDCap<cite><a href="#redcap" class="bibref">[REDCap]</a></cite> library of health studies and instruments.
+Finally, MedRed has been made publicly available under standard formats, on a permanent URL, and following ontology publication guidelines.</p>
+
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
