@@ -3,7 +3,7 @@ package ch.hevs.medred
 import rdftools.rdf.RdfTerm
 import rdftools.rdf.Iri
 import rdftools.rdf.api.JenaTools._
-import rdftools.rdf.Literal._
+import rdftools.rdf.RdfTools._
 import rdftools.rdf.vocab.RDF
 import rdftools.rdf.vocab.DCterms
 
@@ -21,7 +21,6 @@ import ch.hevs.medred.vocab.Shacl
 
 class Rdfizer(val prefix: Iri) {
 
-
   import Rdfizer._
   import rdftools.rdf.RdfSchema._
 
@@ -30,14 +29,14 @@ class Rdfizer(val prefix: Iri) {
   def toRdf(item: Item)(implicit m: Model): Unit = item match {
     case sec: Section =>
       val secIri = newIri(sec.name)
-      +=(secIri, RDF.a, MedRed.Section)
+      +=(secIri:Iri, RDF.a, MedRed.Section:Iri)
       +=(secIri, DCterms.identifier, sec.name)
       +=(secIri, DCterms.title, sec.label)
       val secItems: Array[RDFNode] = sec.items.map { i =>
         val iti = newIri(i.name)
         toRdf(i)
         +=(iti, MedRed.ofSection, secIri)
-        iti: RDFNode
+        Iri(iti): RDFNode
       }.toArray
       +=(secIri, MedRed.items, m.createList(secItems))
     case question: Question =>
@@ -113,7 +112,7 @@ class Rdfizer(val prefix: Iri) {
       val iri = newIri(item.name)
       toRdf(item)
       +=(iri, MedRed.ofInstrument, instIri)
-      iri: RDFNode
+      Iri(iri): RDFNode
     }.toArray
     var current = Iri("")
     items.foreach { r =>
@@ -156,13 +155,13 @@ object Rdfizer {
     
     println(study.name)
         implicit val m = ModelFactory.createDefaultModel
-    m.setNsPrefix("ex", rdfizer.prefix.value)
-    m.setNsPrefix("rdf", RDF.iri.value)
-    m.setNsPrefix("medred", MedRed.iri.value)
+    m.setNsPrefix("ex", rdfizer.prefix.path)
+    m.setNsPrefix("rdf", RDF.iri.path)
+    m.setNsPrefix("medred", MedRed.iri.path)
     m.setNsPrefix("xsd", XSD.getURI)
-    m.setNsPrefix("dcterms", DCterms.iri.value)
-    m.setNsPrefix("pplan", PPlan.iri.value)
-    m.setNsPrefix("sh", Shacl.iri.value)
+    m.setNsPrefix("dcterms", DCterms.iri.path)
+    m.setNsPrefix("pplan", PPlan.iri.path)
+    m.setNsPrefix("sh", Shacl.iri.path)
     rdfizer.toRdf(study)
     //val m = rdfizer.toRdf(instr)
     RDFDataMgr.write(System.out, m, RDFFormat.TURTLE)
