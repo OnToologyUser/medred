@@ -2,7 +2,7 @@ package ch.hevs.medred
 
 import rdftools.rdf.RdfTerm
 import rdftools.rdf.Iri
-import rdftools.rdf.api.JenaTools._
+import rdftools.rdf.jena._
 import rdftools.rdf.RdfTools._
 import rdftools.rdf.vocab.RDF
 import rdftools.rdf.vocab.DCterms

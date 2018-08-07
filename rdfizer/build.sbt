@@ -2,14 +2,15 @@
 name := "medred"
 organization := "ch.hevs"
 version := "0.0.1"
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.3"
 
 //enablePlugins(JavaAppPackaging)
   
 libraryDependencies ++= Seq(
   "org.apache.jena" % "apache-jena-libs" % "3.1.0",
   "com.github.jpcik" % "rdf-tools" % "master-SNAPSHOT",
-  "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+  "ch.hevs" %% "rdf-tools-jena" % "0.1.2",
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "junit" % "junit" % "4.12" % "test"
 )
                                  
