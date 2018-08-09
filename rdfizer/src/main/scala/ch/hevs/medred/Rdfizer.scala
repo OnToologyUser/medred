@@ -18,6 +18,8 @@ import ch.hevs.medred.vocab.MedRed
 import ch.hevs.medred.vocab.PPlan
 import rdftools.rdf.vocab.PROV
 import ch.hevs.medred.vocab.Shacl
+import java.io.FileWriter
+import java.io.FileOutputStream
 
 class Rdfizer(val prefix: Iri) {
 
@@ -164,7 +166,11 @@ object Rdfizer {
     m.setNsPrefix("sh", Shacl.iri.path)
     rdfizer.toRdf(study)
     //val m = rdfizer.toRdf(instr)
-    RDFDataMgr.write(System.out, m, RDFFormat.TURTLE)
+    
+    val file=new FileOutputStream("output.ttl")
+    
+    RDFDataMgr.write(file, m, RDFFormat.TURTLE)
+    
     /*
     instr.items.foreach {d=>
       d match {
