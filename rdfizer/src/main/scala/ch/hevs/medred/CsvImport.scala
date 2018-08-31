@@ -158,4 +158,21 @@ object CsvImport {
     study.copy(instruments)
   }
 
+  def loadRecords(file:String)={
+
+    //val records=Itera new [Record]
+    val labels= splitLine(Source.fromFile(file).getLines().next)
+    
+
+    val records = Source.fromFile(file).getLines.drop(1).map { line => 
+      val data=splitLine(line) 
+      //val created = dateStringFormat.parseDateTime(data(6))
+      //val modified = dateStringFormat.parseDateTime(data(7))
+      val recordId = data(0)
+      
+      Record(recordId,labels.tail,data.tail)
+    }
+    records
+  }
+  
 }

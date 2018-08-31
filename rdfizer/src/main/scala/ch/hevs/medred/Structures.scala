@@ -46,4 +46,4 @@ case class MaxExclShape(maxVal:Double) extends PropertyShape
 case class MinInclShape(minVal:Double) extends PropertyShape
 case class MinExclShape(minVal:Double) extends PropertyShape
 
-
+case class Record(recordId:String,varNames:Seq[String],fields:Seq[Any])

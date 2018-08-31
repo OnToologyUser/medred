@@ -20,6 +20,7 @@ import rdftools.rdf.vocab.PROV
 import ch.hevs.medred.vocab.Shacl
 import java.io.FileWriter
 import java.io.FileOutputStream
+import org.apache.jena.rdf.model.RDFList
 
 class Rdfizer(val prefix: Iri) {
 
@@ -141,6 +142,20 @@ class Rdfizer(val prefix: Iri) {
     studyIri
   }
 
+  def toRdf(record:Record)(implicit m:Model):Iri={
+    val recordIri=newIri(record.recordId)
+    +=(recordIri,RDF.a,Iri("Record"))
+    +=(recordIri,DCterms.identifier,record.recordId)
+    val values=record.fields.map { field=>
+      lit(field.toString):RDFNode
+    }.toArray
+    +=(recordIri,MedRed.valueList,m.createList(values))
+    val varNameList=record.varNames.map(vn=>lit(vn):RDFNode).toArray
+    +=(recordIri,MedRed.varNameList,m.createList(varNameList))
+    
+    recordIri
+  }
+  
 }
 
 object Rdfizer {
@@ -148,8 +163,37 @@ object Rdfizer {
   def main(args: Array[String]): Unit = {
     import collection.JavaConversions._
     
+    val usage="Usage: mmlaln [-s] [-r] filename"
+    
+    if (args.length == 0) println(usage)
+    val arglist = args.toList
+    type OptionMap = Map[Symbol, Any]
+
+    def nextOption(map : OptionMap, list: List[String]) : OptionMap = {
+      def isSwitch(s : String) = (s(0) == '-')
+      list match {
+        case Nil => map
+        case "-s" :: tail =>
+                               nextOption(map ++ Map('mode -> "study"), tail)
+        case "-r" :: tail =>
+                               nextOption(map ++ Map('mode -> "record"), tail)
+        case string :: opt2 :: tail if isSwitch(opt2) => 
+                               nextOption(map ++ Map('infile -> string), list.tail)
+        case string :: Nil =>  nextOption(map ++ Map('infile -> string), list.tail)
+        case option :: tail => println("Unknown option "+option) 
+                               
+          System.exit(1)
+          Map()
+      }
+    }
+    val options = nextOption(Map(),arglist)
+    println(options)
+    
+    
     
     val rdfizer = new Rdfizer(iri("http://example.org/"))
+    
+    val records =  CsvImport.loadRecords("src/main/resources/studies/D1NAMOrecords.csv")
     
     val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
     //val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
@@ -165,6 +209,9 @@ object Rdfizer {
     m.setNsPrefix("pplan", PPlan.iri.path)
     m.setNsPrefix("sh", Shacl.iri.path)
     rdfizer.toRdf(study)
+    records.foreach{rec=>
+    //  rdfizer.toRdf(rec)
+    }
     //val m = rdfizer.toRdf(instr)
     
     val file=new FileOutputStream("output.ttl")

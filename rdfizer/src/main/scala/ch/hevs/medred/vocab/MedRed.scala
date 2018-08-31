@@ -32,4 +32,9 @@ object MedRed extends Vocab {
   val hasValue=prop("hasValue")
   val validationShape=prop("validationShape")
   val dataValue=prop("dataValue")
+  
+  // added manually, consider adding in MedRed ontology
+  val Record = clazz("Record")
+  val valueList = prop("valueList")
+  val varNameList = prop("varNameList")
 }
