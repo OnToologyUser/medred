@@ -160,9 +160,7 @@ class Rdfizer(val prefix: Iri) {
 
 object Rdfizer {
 
-  def main(args: Array[String]): Unit = {
-    import collection.JavaConversions._
-    
+  def usage(args:Array[String]) ={
     val usage="Usage: mmlaln [-s] [-r] filename"
     
     if (args.length == 0) println(usage)
@@ -187,20 +185,11 @@ object Rdfizer {
       }
     }
     val options = nextOption(Map(),arglist)
-    println(options)
-    
-    
-    
-    val rdfizer = new Rdfizer(iri("http://example.org/"))
-    
-    val records =  CsvImport.loadRecords("src/main/resources/studies/D1NAMOrecords.csv")
-    
-    val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
-    //val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
-    //val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
-    
-    println(study.name)
-        implicit val m = ModelFactory.createDefaultModel
+    options
+  }
+  
+  def newModel(rdfizer:Rdfizer)= {
+    val m = ModelFactory.createDefaultModel
     m.setNsPrefix("ex", rdfizer.prefix.path)
     m.setNsPrefix("rdf", RDF.iri.path)
     m.setNsPrefix("medred", MedRed.iri.path)
@@ -208,14 +197,39 @@ object Rdfizer {
     m.setNsPrefix("dcterms", DCterms.iri.path)
     m.setNsPrefix("pplan", PPlan.iri.path)
     m.setNsPrefix("sh", Shacl.iri.path)
-    rdfizer.toRdf(study)
+    m
+  }
+  
+  def main(args: Array[String]): Unit = {
+    import collection.JavaConversions._
+    
+  
+    //println(usage(args))
+    
+    
+    
+    val rdfizer = new Rdfizer(iri("http://example.org/"))
+    implicit val m = newModel(rdfizer)
+    
+    // load RedCap records in csv
+    val records =  CsvImport.loadRecords("src/main/resources/studies/D1NAMOrecords.csv")
+    
+    // generate RDF for all records
     records.foreach{rec=>
-    //  rdfizer.toRdf(rec)
+      rdfizer.toRdf(rec)
     }
-    //val m = rdfizer.toRdf(instr)
     
+    
+    //load RedCap study in csv
+    //val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
+    //val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
+    //val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
+    
+    // generate RDF for the study questions
+    // rdfizer.toRdf(study)
+
+    // export to a file
     val file=new FileOutputStream("output.ttl")
-    
     RDFDataMgr.write(file, m, RDFFormat.TURTLE)
     
     /*
