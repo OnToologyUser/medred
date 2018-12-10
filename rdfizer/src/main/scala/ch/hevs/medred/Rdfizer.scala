@@ -33,8 +33,8 @@ class Rdfizer(val prefix: Iri) {
     case sec: Section =>
       val secIri = newIri(sec.name)
       +=(secIri:Iri, RDF.a, MedRed.Section:Iri)
-      +=(secIri, DCterms.identifier, sec.name)
-      +=(secIri, DCterms.title, sec.label)
+      +=(secIri, DCterms.identifier, lit(sec.name))
+      +=(secIri, DCterms.title, lit(sec.label))
       val secItems: Array[RDFNode] = sec.items.map { i =>
         val iti = newIri(i.name)
         toRdf(i)
@@ -59,7 +59,7 @@ class Rdfizer(val prefix: Iri) {
     case note: Note =>
       val infoIri = newIri(note.name)
       +=(infoIri, RDF.a, MedRed.Information)
-      +=(infoIri, DCterms.description, note.label)
+      +=(infoIri, DCterms.description, lit(note.label))
 
   }
 
@@ -86,23 +86,23 @@ class Rdfizer(val prefix: Iri) {
     val shapeIri=itemIri+"_shape"
 
     +=(varIri, RDF.a, PPlan.Variable)
-    +=(varIri, MedRed.varName, field.variable.varName)
+    +=(varIri, MedRed.varName, lit(field.variable.varName))
     +=(varIri, MedRed.dataType, Iri(field.variable.varType.getURI))
   }
 
   def createRdfItem(item: Item)(implicit m: Model): Iri = {
     val itemIri = newIri(item.name)
-    +=(itemIri, DCterms.identifier, item.name)
-    +=(itemIri, DCterms.title, item.label)
+    +=(itemIri, DCterms.identifier, lit(item.name))
+    +=(itemIri, DCterms.title, lit(item.label))
     if (!item.note.isEmpty)
-      +=(itemIri, DCterms.description, item.note)
+      +=(itemIri, DCterms.description, lit(item.note))
     itemIri
   }
 
   def toRdf(choice: Choice)(implicit m: Model) = {
     val choiceIri = newIri("choice_"+choice.label +"_"+ choice.value)
     +=(choiceIri, RDF.a, MedRed.Choice)
-    +=(choiceIri, DCterms.title, choice.label)
+    +=(choiceIri, DCterms.title, lit(choice.label))
     +=(choiceIri, MedRed.hasValue, lit(choice.value))
     choiceIri
   }
@@ -110,7 +110,7 @@ class Rdfizer(val prefix: Iri) {
   def toRdf(instr: Instrument)(implicit m:Model):Iri = {
     val instIri = newIri(instr.name)
     +=(instIri, RDF.a, MedRed.Instrument)
-    +=(instIri, DCterms.identifier, instr.name)
+    +=(instIri, DCterms.identifier, lit(instr.name))
     val items: Array[RDFNode] = instr.items.map { item =>
       val iri = newIri(item.name)
       toRdf(item)
@@ -131,9 +131,9 @@ class Rdfizer(val prefix: Iri) {
   def toRdf(study:Study)(implicit m:Model):Iri={
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
-    +=(studyIri,DCterms.identifier,study.id)
-    +=(studyIri,DCterms.title,study.name)
-    +=(studyIri,DCterms.description,study.description)
+    +=(studyIri,DCterms.identifier,lit(study.id))
+    +=(studyIri,DCterms.title,lit(study.name))
+    +=(studyIri,DCterms.description,lit(study.description))
     val instrs=study.instruments.map{instr=>
       val instrIri=toRdf(instr)
           +=(studyIri,MedRed.instrument,instrIri)
@@ -145,7 +145,7 @@ class Rdfizer(val prefix: Iri) {
   def toRdf(record:Record)(implicit m:Model):Iri={
     val recordIri=newIri(record.recordId)
     +=(recordIri,RDF.a,Iri("Record"))
-    +=(recordIri,DCterms.identifier,record.recordId)
+    +=(recordIri,DCterms.identifier,lit(record.recordId))
     val values=record.fields.map { field=>
       lit(field.toString):RDFNode
     }.toArray
@@ -222,11 +222,11 @@ object Rdfizer {
     
     //load RedCap study in csv
     //val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
-    //val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
+    val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
     //val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
     
     // generate RDF for the study questions
-    // rdfizer.toRdf(study)
+    rdfizer.toRdf(study)
 
     // export to a file
     val file=new FileOutputStream("output.ttl")
