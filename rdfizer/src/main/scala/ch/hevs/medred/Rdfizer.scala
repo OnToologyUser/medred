@@ -21,6 +21,11 @@ import ch.hevs.medred.vocab.Shacl
 import java.io.FileWriter
 import java.io.FileOutputStream
 import org.apache.jena.rdf.model.RDFList
+import rdftools.rdf.XsdDatatype
+import org.apache.jena.datatypes.RDFDatatype
+import org.apache.jena.datatypes.BaseDatatype
+import rdftools.rdf.vocab.RDFS
+import org.apache.jena.rdf.model.ResourceFactory
 
 class Rdfizer(val prefix: Iri) {
 
@@ -128,10 +133,14 @@ class Rdfizer(val prefix: Iri) {
     instIri
   }
   
+  def typedLiteral(value:String,datatype:Iri)=
+    ResourceFactory.createTypedLiteral(value,new BaseDatatype(datatype))
+    
+  
   def toRdf(study:Study)(implicit m:Model):Iri={
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
-    +=(studyIri,DCterms.identifier,lit(study.id))
+    +=(studyIri,DCterms.identifier,typedLiteral(study.id,RDFS.Literal))
     +=(studyIri,DCterms.title,lit(study.name))
     +=(studyIri,DCterms.description,lit(study.description))
     val instrs=study.instruments.map{instr=>
@@ -197,6 +206,7 @@ object Rdfizer {
     m.setNsPrefix("dcterms", DCterms.iri.path)
     m.setNsPrefix("pplan", PPlan.iri.path)
     m.setNsPrefix("sh", Shacl.iri.path)
+    m.setNsPrefix("rdfs", RDFS.iri.path)
     m
   }
   
@@ -216,7 +226,7 @@ object Rdfizer {
     
     // generate RDF for all records
     records.foreach{rec=>
-      rdfizer.toRdf(rec)
+    //  rdfizer.toRdf(rec)
     }
     
     
@@ -230,7 +240,7 @@ object Rdfizer {
 
     // export to a file
     val file=new FileOutputStream("output.ttl")
-    RDFDataMgr.write(file, m, RDFFormat.TURTLE)
+    RDFDataMgr.write(file, m, RDFFormat.JSONLD_EXPAND_PRETTY)
     
     /*
     instr.items.foreach {d=>
