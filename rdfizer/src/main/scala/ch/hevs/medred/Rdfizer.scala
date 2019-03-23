@@ -172,7 +172,7 @@ class Rdfizer(val prefix: Iri) {
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
     +=(studyIri,DCterms.identifier,typedLiteral(study.id,RDFS.Literal))
-    +=(studyIri,MedRed.calculation,typedLiteral(34))
+    //+=(studyIri,MedRed.calculation,typedLiteral(34))
     //+=(studyIri,MedRed.calculation,typedLiteral(34))
     
     +=(studyIri,DCterms.title,lit(study.name))
