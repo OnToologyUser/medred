@@ -26,6 +26,12 @@ import org.apache.jena.datatypes.RDFDatatype
 import org.apache.jena.datatypes.BaseDatatype
 import rdftools.rdf.vocab.RDFS
 import org.apache.jena.rdf.model.ResourceFactory
+import rdftools.rdf.XsdDouble
+import rdftools.rdf.XsdInt
+import rdftools.rdf.XsdBoolean
+import rdftools.rdf.XsdString
+import scala.collection.mutable.ArrayBuffer
+import rdftools.rdf.XsdFloat
 
 class Rdfizer(val prefix: Iri) {
 
@@ -108,7 +114,7 @@ class Rdfizer(val prefix: Iri) {
     val choiceIri = newIri("choice_"+choice.label +"_"+ choice.value)
     +=(choiceIri, RDF.a, MedRed.Choice)
     +=(choiceIri, DCterms.title, lit(choice.label))
-    +=(choiceIri, MedRed.hasValue, lit(choice.value))
+    +=(choiceIri, MedRed.hasValue, typedLiteral(choice.value))
     choiceIri
   }
 
@@ -133,14 +139,42 @@ class Rdfizer(val prefix: Iri) {
     instIri
   }
   
-  def typedLiteral(value:String,datatype:Iri)=
-    ResourceFactory.createTypedLiteral(value,new BaseDatatype(datatype))
-    
+  object dtypes {
+    val dtypes=new ArrayBuffer[RDFDatatype]()
+    def apply(iri:Iri)={
+      dtypes.find(d=>d.getURI.equals(iri.path)) match {
+        case Some(d)=>
+          d
+        case None=> 
+          val dt=new BaseDatatype(iri)
+          dtypes.+=(dt)
+          dt
+      }
+        
+    }
+  }
   
+  def typedLiteral(value:Any,datatype:Iri=null)(implicit m:Model)= 
+    value match {
+    
+    case i:Int => ResourceFactory.createTypedLiteral(i.toString,dtypes(XsdInt))
+    case d:Float => ResourceFactory.createTypedLiteral(d.toString,dtypes(XsdFloat))
+    case d:Double =>  ResourceFactory.createTypedLiteral(d.toString,dtypes(XsdDouble))
+    case d:Boolean => ResourceFactory.createTypedLiteral(d.toString,dtypes(XsdBoolean))
+    case s:String =>
+      if (datatype==null) 
+        ResourceFactory.createTypedLiteral(s,dtypes(XsdString))
+      else  
+        ResourceFactory.createTypedLiteral(s,dtypes(datatype))
+  }
+
   def toRdf(study:Study)(implicit m:Model):Iri={
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
     +=(studyIri,DCterms.identifier,typedLiteral(study.id,RDFS.Literal))
+    +=(studyIri,MedRed.calculation,typedLiteral(34))
+    //+=(studyIri,MedRed.calculation,typedLiteral(34))
+    
     +=(studyIri,DCterms.title,lit(study.name))
     +=(studyIri,DCterms.description,lit(study.description))
     val instrs=study.instruments.map{instr=>
