@@ -3,3 +3,4 @@ ProjectDemoDatabase,Project Demo Database,"This file contains the metadata, even
 AllInstruments,Collection of all instruments,,,,,2017-04-27T16:10:59,2017-04-27T16:10:59,,,6.16.1 
 D1NAMO,D1NAMO,"Database for the D1NAMO instrument for qualitative evaluation",D1NAMO protocol for qualitytive evaulation,For the Nanotera D1NAMO project,1,2016-08-27T16:10:59,2016-08-27T16:10:59,Fabien Dubosson,REDCAp,6.16.1 
 WORRK,WORRK,"Database for the WORRK instrument study",WORRK protocol,,1,2016-08-27T16:10:59,2016-08-27T16:10:59,Roger Hilfiker,REDCAp,6.16.1 
+redcap_sampleq_newline,Newline,"multiline example",multiline example,,1,2019-04-01T16:10:59,2019-04-01T16:10:59,JP Calbimonte,REDCAp,6.16.1 

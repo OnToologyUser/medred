@@ -10,6 +10,9 @@ libraryDependencies ++= Seq(
   "org.apache.jena" % "apache-jena-libs" % "3.1.0",
   "com.github.jpcik" % "rdf-tools" % "v0.1.2",
   "com.github.jpcik.rdf-tools" %% "rdf-tools-jena" % "v0.1.2",
+  "com.fasterxml.jackson.dataformat" % "jackson-dataformat-csv" % "2.7.0",
+  "ch.qos.logback" % "logback-classic" % "1.2.3",
+  "org.codehaus.groovy" % "groovy-all" % "2.4.13",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "junit" % "junit" % "4.12" % "test"
 )

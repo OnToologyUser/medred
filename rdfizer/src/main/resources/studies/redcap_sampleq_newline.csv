@@ -1,0 +1,11 @@
+Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+whoqolbref_description,whoqol,,descriptive,"This assessment asks how you feel about your quality of life, health, or other areas of your life. Please answer all the questions. If you are unsure about which response to give to a question, please choose the one that appears most appropriate. This can often be your first response. Please keep in mind your standards, hopes, pleasures and concerns. 
+
+We ask that you think about your life in the last two weeks.<b> 
+
+Please read each question, assess your feelings, and select the option on the scale for each question that gives the best answer for you.",,,,,,,,,,,,,
+wb_1,whoqol,,radio,How would you rate your quality of life?,"1, Very Poor | 2, Poor | 3, Neither poor nor good | 4, Good | 5, Very good",,,,,,,y,LH,,,,
+wb_2,whoqol,,radio,How satisfied are you with your health?,"1, Very dissatisfied | 2, Dissatisfied | 3, Neither satisfied nor dissatisfied | 4, Satisfied | 5, Very satisfied",,,,,,,y,LH,,,,
+wb_3,whoqol,The following questions ask about how much you have experienced certain things in the last two weeks.,radio,To what extent do you feel that physical pain prevents you from doing what you need to do?,"5, Not at all | 4, A little | 3, A moderate amount | 2, Very much | 1, An extreme amount",,,,,,,y,,,wb3and4,,
+wb_4,whoqol,,radio,How much do you need any medical treatment to function in your daily life?,"5, Not at all | 4, A little | 3, A moderate amount | 2, Very much | 1, An extreme amount",,,,,,,y,,,wb3and4,,
+wb_5,whoqol,,radio,How much do you enjoy life?,"1, Not at all|2, A little|3, A moderate amount|4, Very much|5, An extreme amount",,,,,,,y,,,wb5to6,,

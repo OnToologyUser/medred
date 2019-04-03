@@ -32,6 +32,10 @@ import rdftools.rdf.XsdBoolean
 import rdftools.rdf.XsdString
 import scala.collection.mutable.ArrayBuffer
 import rdftools.rdf.XsdFloat
+import com.github.jsonldjava.core.JsonLdOptions
+import org.apache.jena.riot.JsonLDWriteContext
+import org.apache.jena.riot.RDFWriter
+import org.apache.jena.query.DatasetFactory
 
 class Rdfizer(val prefix: Iri) {
 
@@ -172,8 +176,8 @@ class Rdfizer(val prefix: Iri) {
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
     +=(studyIri,DCterms.identifier,typedLiteral(study.id,RDFS.Literal))
-    //+=(studyIri,MedRed.calculation,typedLiteral(34))
-    //+=(studyIri,MedRed.calculation,typedLiteral(34))
+    //+=(studyIri,MedRed.calculation,typedLiteral("34",RDFS.Literal))
+//    +=(studyIri,MedRed.calculation,typedLiteral(34.5))
     
     +=(studyIri,DCterms.title,lit(study.name))
     +=(studyIri,DCterms.description,lit(study.description))
@@ -266,15 +270,25 @@ object Rdfizer {
     
     //load RedCap study in csv
     //val study = CsvImport.loadStudy("src/main/resources/studies/WORRK.csv")
-    val study = CsvImport.loadStudy("src/main/resources/studies/D1NAMO.csv")
+    val study = CsvImport.loadStudy("src/main/resources/studies/redcap_sampleq_newline.csv")
     //val study = CsvImport.loadStudy( "/Users/jpc/git/medred-instruments/redcap-shared/AllInstruments.csv")
     
     // generate RDF for the study questions
     rdfizer.toRdf(study)
 
     // export to a file
-    val file=new FileOutputStream("output.ttl")
-    RDFDataMgr.write(file, m, RDFFormat.JSONLD_EXPAND_PRETTY)
+    val file=new FileOutputStream("output.json")
+    val ctx=new JsonLDWriteContext
+    val ops=new JsonLdOptions
+    ops.setUseNativeTypes(false)
+    ops.setUseRdfType(true)
+    ops.setExplicit(true)
+    ctx.setOptions(ops)
+    val g=DatasetFactory.create(m).asDatasetGraph()
+    val w = RDFWriter.create().format(RDFFormat.JSONLD).source(g).context(ctx).build()
+    w.output(file)
+    
+    //RDFDataMgr.write(file, m, RDFFormat.JSONLD_COMPACT_PRETTY)
     
     /*
     instr.items.foreach {d=>
