@@ -1,46 +1,37 @@
 package ch.hevs.medred
 
-import rdftools.rdf.RdfTerm
-import rdftools.rdf.Iri
-import rdftools.rdf.jena._
-import rdftools.rdf.RdfTools._
-import rdftools.rdf.vocab.RDF
-import rdftools.rdf.vocab.DCterms
+import java.io.FileOutputStream
 
+import scala.collection.mutable.ArrayBuffer
+
+import org.apache.jena.datatypes.BaseDatatype
+import org.apache.jena.datatypes.RDFDatatype
+import org.apache.jena.query.DatasetFactory
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.rdf.model.RDFNode
+import org.apache.jena.rdf.model.ResourceFactory
+import org.apache.jena.riot.JsonLDWriteContext
 import org.apache.jena.riot.RDFFormat
-import org.apache.jena.riot.RDFDataMgr
+import org.apache.jena.riot.RDFWriter
 import org.apache.jena.vocabulary.XSD
+
+import com.github.jsonldjava.core.JsonLdOptions
 
 import ch.hevs.medred.vocab.MedRed
 import ch.hevs.medred.vocab.PPlan
-import rdftools.rdf.vocab.PROV
 import ch.hevs.medred.vocab.Shacl
-import java.io.FileWriter
-import java.io.FileOutputStream
-import org.apache.jena.rdf.model.RDFList
-import rdftools.rdf.XsdDatatype
-import org.apache.jena.datatypes.RDFDatatype
-import org.apache.jena.datatypes.BaseDatatype
+import rdftools.rdf._
+import rdftools.rdf.RdfTools._
+import rdftools.rdf.jena._
+
+import rdftools.rdf.vocab.DCterms
+import rdftools.rdf.vocab.RDF
 import rdftools.rdf.vocab.RDFS
-import org.apache.jena.rdf.model.ResourceFactory
-import rdftools.rdf.XsdDouble
-import rdftools.rdf.XsdInt
-import rdftools.rdf.XsdBoolean
-import rdftools.rdf.XsdString
-import scala.collection.mutable.ArrayBuffer
-import rdftools.rdf.XsdFloat
-import com.github.jsonldjava.core.JsonLdOptions
-import org.apache.jena.riot.JsonLDWriteContext
-import org.apache.jena.riot.RDFWriter
-import org.apache.jena.query.DatasetFactory
 
 class Rdfizer(val prefix: Iri) {
 
   import Rdfizer._
-  import rdftools.rdf.RdfSchema._
 
   def newIri(str: String) = prefix + str.replaceAll("\\s|/|<|>|\\(|\\)", "")
 
@@ -176,8 +167,8 @@ class Rdfizer(val prefix: Iri) {
     val studyIri=newIri(study.name)
     +=(studyIri,RDF.a,MedRed.Study)
     +=(studyIri,DCterms.identifier,typedLiteral(study.id,RDFS.Literal))
-    //+=(studyIri,MedRed.calculation,typedLiteral("34",RDFS.Literal))
-//    +=(studyIri,MedRed.calculation,typedLiteral(34.5))
+    +=(studyIri,MedRed.calculation,typedLiteral(34))
+    +=(studyIri,MedRed.calculation,typedLiteral(34.5))
     
     +=(studyIri,DCterms.title,lit(study.name))
     +=(studyIri,DCterms.description,lit(study.description))
@@ -249,7 +240,6 @@ object Rdfizer {
   }
   
   def main(args: Array[String]): Unit = {
-    import collection.JavaConversions._
     
   
     //println(usage(args))
@@ -279,10 +269,19 @@ object Rdfizer {
     // export to a file
     val file=new FileOutputStream("output.json")
     val ctx=new JsonLDWriteContext
+    ctx.setJsonLDContext(""" 
+      {"ex"      : "http://example.org/",
+       "rdf"     : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+       "sh"      : "http://www.w3.org/ns/shacl#",
+       "pplan"   : "http://purl.org/net/p-plan#",
+       "xsd"     : "http://www.w3.org/2001/XMLSchema#",
+       "dcterms" : "http://purl.org/dc/terms/",
+       "rdfs"    : "http://www.w3.org/2000/01/rdf-schema#",
+       "medred"  : "http://w3id.org/medred/medred#"}  """)
     val ops=new JsonLdOptions
-    ops.setUseNativeTypes(false)
-    ops.setUseRdfType(true)
-    ops.setExplicit(true)
+    //ops.setUseNativeTypes(false)
+    //ops.setUseRdfType(true)
+    //ops.setExplicit(true)
     ctx.setOptions(ops)
     val g=DatasetFactory.create(m).asDatasetGraph()
     val w = RDFWriter.create().format(RDFFormat.JSONLD).source(g).context(ctx).build()

@@ -10,5 +10,5 @@ appender("STDOUT", ConsoleAppender) {
   }
 }
 logger("org.apache.jena.shared", INFO)
-logger("chapters.configuration.Foo", DEBUG)
+logger("org.apache.jena.util", INFO)
 root(DEBUG, ["STDOUT"])
